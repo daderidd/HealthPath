@@ -24,7 +24,7 @@ data_folder = Path('./Data')
 
 # Initialize app
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY],
+app = dash.Dash(__name__,
                 meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}], )
 server = app.server
 
@@ -168,15 +168,8 @@ df = pd.read_csv(
     'https://gist.githubusercontent.com/chriddyp/5d1ea79569ed194d432e56108a04d188/raw/a9f9e8076b837d541398e999dcbac2b2826a81f8/gdp-life-exp-2007.csv')
 
 
-lats = []
-lons = []
-names = []
 
 
-
-# fig = px.scatter(df, x="gdp per capita", y="life expectancy",
-#                  size="population", color="continent", hover_name="country",
-#                  log_x=True, size_max=60)
 
 app.layout = html.Div(
     id="root",
@@ -185,93 +178,90 @@ app.layout = html.Div(
             id="header",
             children=[
                 html.Img(id="logo", src=app.get_asset_url("logo_transparent.png"), height=120, width=120),
-                html.H2(children="HealthPath - Reduce the caloric pressure around you",style={"margin-left": "15px"}),
+                html.H2(children="HealthPath - Reduce the caloric pressure around you"),
                 html.P(
                     id="description",
-                    style={"margin-left": "15px"},
                     children="HealthPath makes you able to find itineraries avoiding \
                     certain types of locations such has fast-foods, restaurants, bars.",
                 ),
             ],
         ),
         html.Div(
-            id = 'label-address',
-            children = [html.H4('What is your itinerary?',style={"margin-left": "15px"}),
-                    ],
-                ),
-        html.Div(
-            children=[
-        html.Label(["Starting point", dcc.Dropdown(id="dynamic-start")]),
-        html.Label(["Destination", dcc.Dropdown(id="dynamic-end")]),
-            ],style={"width": "200%"},
-        ),
-        html.Div(
-            id="dropdown-amenity",
-            children=[
-                html.H4('What would you like to avoid on your way?'),
-                dcc.Dropdown(id = 'poi-selection',
-                    options=[
-                        {'label': 'Fast-foods', 'value': 'fast_food'},
-                        {'label': 'Restaurants', 'value': 'restaurant'},
-                        {'label': 'Bars', 'value': 'bar'}
-                    ],
-                    value='fast_food',
-                ),
-            ],
-            style = {'width':'40%',"margin-left": "15px"},
-        ),
-        html.Div(id = 'output_address'
-        ),
-        html.Div(
-            id='map',
-            children=[
-                dcc.Graph(
-                    id='map-route',
-                    figure=dict(
-                        data=[dict(
-                            type='scattermapbox',
-                            marker=[dict(size=0, color='white', opacity=0)]
-                        )],
-                        layout=dict(
-                            margin={"r": 1, "t": 0, "l": 5, "b": 0},
-                            height = 800,
-                            mapbox=dict(
-                                layers=[],
-                                accesstoken=mapbox_access_token,
-                                style='dark',
-                                center=dict(
-                                    lat=46.2, lon=6.14
-                                ),
-                                pitch=0,
-                                zoom=10.5,
-                            ),
-                        ),
-                    ),
-                ),
-            ],
-        ),
-        html.Div(
-            id="app-container",
-            children=[
+            id = 'app-container',
+            children = [
                 html.Div(
-                    id="left-column",
-                    children=[
+                    id = 'left-column',
+                    children = [
+                        html.Div(
+                            id = 'address-container',
+                            children=[
+                                html.H4('What is your itinerary?'),
+                                html.Label(["Starting point", dcc.Dropdown(id="dynamic-start")]),
+                                html.Label(["Destination", dcc.Dropdown(id="dynamic-end")]),
+                            ],
+                        ),
+
+                        html.Div(
+                            id="dropdown-amenity",
+                            children=[
+                                html.H4('What would you like to avoid on your way?'),
+                                dcc.Dropdown(id = 'poi-selection',
+                                    options=[
+                                        {'label': 'Fast-foods', 'value': 'fast_food'},
+                                        {'label': 'Restaurants', 'value': 'restaurant'},
+                                        {'label': 'Bars', 'value': 'bar'}
+                                    ],
+                                    value='fast_food',
+                                ),
+                            ],
+                        ),
                         html.Div(
                             id="slider-container",
                             children=[
-                                html.P(
-                                    id="slider-text",
-                                    children="What additional distance are you ok to do to avoid a fast-food?",
+                                html.H4(
+                                    id="slider-text"
                                 ),
                                 dcc.Slider(
                                     id="years-slider",
                                     min=min(METERS),
                                     max=max(METERS),
                                     value=min(METERS),
-                                    marks={str(dist): dict(label=str(dist), style={"color": "#7fafdf"}) for dist in METERS},
+                                    marks={str(dist): dict(label=str(dist)+'m', style={"color": "#7fafdf"}) for dist in
+                                           METERS},
                                     step=None,
                                 ),
                             ],
+                        ),
+                        html.Div([html.H4(id = 'output_address')]
+                    ),
+                ],
+            ),
+
+            html.Div(
+                id='map-container',
+                children=[
+                    dcc.Graph(
+                        id='map-route',
+                        figure=dict(
+                            data=[dict(
+                                type='scattermapbox',
+                                marker=[dict(size=0, color='white', opacity=0)]
+                            )],
+                            layout=dict(
+                                margin={"r": 0, "t": 0, "l": 0, "b": 0},
+                                height = 600,
+                                mapbox=dict(
+                                    layers=[],
+                                    accesstoken=mapbox_access_token,
+                                    style='dark',
+                                    center=dict(
+                                        lat=46.22, lon=6.14
+                                    ),
+                                    pitch=0,
+                                    zoom=10.3,
+                                    ),
+                                ),
+                            ),
                         ),
                     ],
                 ),
@@ -279,6 +269,7 @@ app.layout = html.Div(
         ),
     ],
 )
+
 
 
 @app.callback(
@@ -300,6 +291,14 @@ def update_options(search_value):
     return [o for o in options if search_value.lower() in o["label"]]
 
 @app.callback(
+    Output("slider-text", "children"),
+    [Input("poi-selection","value")])
+def return_poi(selected_poi):
+    poi_dict = {'restaurant':'restaurant', 'fast_food':'fast-food','bar':'bar'}
+    text = "What additional distance are you ok to walk to avoid a {} ?".format(poi_dict[selected_poi])
+    return text
+
+@app.callback(
     [Output("output_address", "children"),Output("map-route", "figure")],
     [Input("dynamic-start","value"),Input("dynamic-end",'value'),Input('poi-selection','value')],
     [State("map-route", "figure")])
@@ -316,7 +315,7 @@ def update_figure(start,end,selected_poi,figure):
         startend = pd.concat([origin_address,dest_address])
         origin_xy, dest_xy, route_health, route_short, gdf_route_edges_short,gdf_route_edges_health = make_route(origin_address, dest_address,poi_imped)
         route_health_length, route_health_npoi, route_short_length, route_short_npoi, detour, diff_poi = calc_path_measures(G, route_health, route_short,selected_poi)
-        message = "By using HealthPath, you walk {} extra meters and avoid passing by {} {}".format(detour, diff_poi, poi_dict[selected_poi])
+        message = "HealthPath makes you avoid passing by {} {} and walk just {} extra meters ".format(diff_poi, poi_dict[selected_poi],detour)
         x, y = gdf_route_edges_health.unary_union.centroid.xy
 
 
@@ -325,17 +324,17 @@ def update_figure(start,end,selected_poi,figure):
 
         names_health,lons_health,lats_health = lineToPoints(gdf_route_edges_health)
         names_short,lons_short,lats_short = lineToPoints(gdf_route_edges_short)
-        lats_cleaned,lons_cleaned = [x for x in list(lats) if str(x) != 'None'],[x for x in list(lons) if str(x) != 'None']
+        # lats_cleaned,lons_cleaned = [x for x in list(lats_health) if str(x) != 'None'],[x for x in list(lons_health) if str(x) != 'None']
 
         fig = go.Figure()
 
         fig.add_trace(go.Scattermapbox(
             # One improvement would be to adjust markers' lon and lat to the start and end of the route, not the address
-            name = None,
             mode="markers+text",
             lon=startend.lon, lat = startend.lat,
             marker=go.scattermapbox.Marker(size= 15,symbol= ["marker",'marker']),
             text=startend.type,
+            showlegend = False,
             textposition="bottom right",
             hoverinfo = 'text',
             textfont=dict(
@@ -376,8 +375,15 @@ def update_figure(start,end,selected_poi,figure):
             accesstoken=mapbox_access_token,
             pitch = 0,
             zoom = 12.5),
+            paper_bgcolor= '#191e26',
             autosize=True,
-            margin={"r": 1, "t": 0, "l": 5, "b": 0})
+            legend = dict(
+            title_font_family="Open Sans",
+            font=dict(
+            family="Helvetica",
+            size=12,
+            color="white")),
+            margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
         return message,fig
 

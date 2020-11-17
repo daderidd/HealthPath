@@ -219,7 +219,7 @@ html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
     font-size: 50%;
-    background-color: #1f2630;
+    background-color: #191e26;
     max-width: 100% !important;
     width: 100% !important;
     margin: 0;
@@ -325,8 +325,8 @@ p {
 }
 
 #logo {
-    height: 5rem;
-    margin-bottom: 2rem;
+    height: 14rem;
+    margin-bottom: 3rem;
 }
 
 #slider-text, #chart-selector {
@@ -742,7 +742,7 @@ hr {
     /*For desktop*/
     #logo {
         float: right;
-        padding-right: 2rem;
+        padding-right: 3rem;
     }
 
     #header p {
