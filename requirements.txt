@@ -18,6 +18,7 @@ dash-renderer==1.8.3
 dash-table==4.11.0
 decorator==4.4.2
 descartes==1.1.0
+Fiona==1.8.17
 Flask==1.1.2
 Flask-Compress==1.8.0
 folium==0.11.0
