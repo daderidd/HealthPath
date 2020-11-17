@@ -1,1 +1,1 @@
-web: gunicorn healthmap:healthmap
+web: gunicorn app:app

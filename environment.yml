@@ -1,17 +1,20 @@
-name: dash_app #Environment name
+# Run `conda-env create -f environment.yml`
+name: healthmap #Environment name
+channels:
+  - conda-forge
 dependencies:
-  - python=3.8
+  - python=3.6
+  - plotly
+  - geopandas
+  - pandas
+  - dash
+  - dash-renderer
+  - dash-core-components
+  - dash-html-components
+  - numpy
+  - matplotlib
   - pip:
-    - dash
-    - dash-renderer
-    - dash-core-components
-    - dash-html-components
-    - plotly
-    - osmnx
-    - geopandas
-    - pandas
-    - numpy
     - shapely
+    - osmnx
     - networkx
-    - matplotlib
     - gunicorn # for app deployment
