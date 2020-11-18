@@ -316,20 +316,21 @@ def update_figure(start,end,selected_poi,figure):
         x, y = gdf_route_edges_health.unary_union.centroid.xy
 
 
-        gdf_poi = load_data(data_folder / 'POIs' / poi_filename)
+        gdf_poi=load_data(data_folder/'POIs'/poi_filename)
         gdf_poi['type'] = poi_dict[selected_poi].capitalize()
 
         names_health,lons_health,lats_health = lineToPoints(gdf_route_edges_health)
         names_short,lons_short,lats_short = lineToPoints(gdf_route_edges_short)
         # lats_cleaned,lons_cleaned = [x for x in list(lats_health) if str(x) != 'None'],[x for x in list(lons_health) if str(x) != 'None']
-
+        print(startend.lon,startend.lat)
         fig = go.Figure()
 
         fig.add_trace(go.Scattermapbox(
             # One improvement would be to adjust markers' lon and lat to the start and end of the route, not the address
             mode="markers+text",
-            lon=startend.lon, lat = startend.lat,
-            marker=go.scattermapbox.Marker(size= 15,symbol= ["marker",'marker']),
+            lon=startend.lon,
+            lat = startend.lat,
+            marker=go.scattermapbox.Marker(size= 15, symbol= ["marker",'marker']),
             text=startend.type,
             showlegend = False,
             textposition="bottom right",
@@ -352,7 +353,7 @@ def update_figure(start,end,selected_poi,figure):
             mode = 'lines',
             lon = lons_health,
             lat = lats_health,
-            hovertext=names_short,
+            hovertext=names_health,
         ))
 
         fig.add_trace(go.Scattermapbox(
@@ -367,7 +368,7 @@ def update_figure(start,end,selected_poi,figure):
 
         fig.update_layout(
             mapbox = dict(
-            center= {'lon': x[0], 'lat': y[0]},
+            center= {'lon': x[0], 'lat': y[0]}, #Centroid of Healthpath
             style="carto-darkmatter",
             pitch = 0,
             zoom = 12.5),
