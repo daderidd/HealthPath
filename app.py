@@ -14,7 +14,6 @@ import shapely.geometry
 import numpy as np
 import plotly.graph_objects as go
 from dash.exceptions import PreventUpdate
-from api_key import mapbox_key
 sys.path.append('/Users/david/Dropbox/PhD/Data/Databases/Community design/20201106-switzerland-osm.shp')
 sys.path.append('/Users/david/Dropbox/PhD/Scripts/Spatial analyses/')
 sys.path.append('/Users/david/Dropbox/PhD/GitHub/deltagiraph/Data/')
