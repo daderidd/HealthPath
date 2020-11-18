@@ -10,12 +10,11 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 import plotly.express as px
 from dash.dependencies import Input, Output, State
-from api_key import mapbox_key
 import shapely.geometry
 import numpy as np
 import plotly.graph_objects as go
 from dash.exceptions import PreventUpdate
-
+from api_key import mapbox_key
 sys.path.append('/Users/david/Dropbox/PhD/Data/Databases/Community design/20201106-switzerland-osm.shp')
 sys.path.append('/Users/david/Dropbox/PhD/Scripts/Spatial analyses/')
 sys.path.append('/Users/david/Dropbox/PhD/GitHub/deltagiraph/Data/')
@@ -30,8 +29,8 @@ server = app.server
 
 # Mapbox
 
-mapbox_access_token = mapbox_key()
-mapbox_style = "mapbox://styles/plotlymapbox/cjvprkf3t1kns1cqjxuxmwixz"
+# mapbox_access_token = mapbox_key()
+# mapbox_style = "mapbox://styles/plotlymapbox/cjvprkf3t1kns1cqjxuxmwixz"
 
 
 # Functions
@@ -252,8 +251,7 @@ app.layout = html.Div(
                                 height = 600,
                                 mapbox=dict(
                                     layers=[],
-                                    accesstoken=mapbox_access_token,
-                                    style='dark',
+                                    style='carto-darkmatter',
                                     center=dict(
                                         lat=46.22, lon=6.14
                                     ),
@@ -371,8 +369,7 @@ def update_figure(start,end,selected_poi,figure):
         fig.update_layout(
             mapbox = dict(
             center= {'lon': x[0], 'lat': y[0]},
-            style="dark",
-            accesstoken=mapbox_access_token,
+            style="carto-darkmatter",
             pitch = 0,
             zoom = 12.5),
             paper_bgcolor= '#191e26',
