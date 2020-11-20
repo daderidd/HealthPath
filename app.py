@@ -55,11 +55,7 @@ def load_data(path, DATE_COLUMN=None):
     return data
 
 
-def transform_network(G, poi, poi_imped):
-    gdf_nodes, gdf_edges = ox.graph_to_gdfs(G)
-    # gdf_edges[poi_imped] = gdf_edges[poi].astype(int)*100 + gdf_edges['length'].astype(float)
-    # G = ox.graph_from_gdfs(gdf_nodes, gdf_edges)
-    return gdf_edges
+
 
 def getRouteEdges(route):
     """Input : OSMNX route
@@ -138,7 +134,7 @@ for address in addresses:
 
 # Define variables
 
-METERS = [25, 50, 75, 100, 125, 150, 175, 200]
+METERS = [ 50, 100, 150, 200]
 DEFAULT_COLORSCALE = [
     "#f2fffb",
     "#bbffeb",
@@ -220,10 +216,10 @@ app.layout = html.Div(
                                     id="slider-text"
                                 ),
                                 dcc.Slider(
-                                    id="years-slider",
+                                    id="dist-slider",
                                     min=min(METERS),
                                     max=max(METERS),
-                                    value=min(METERS),
+                                    value=100,
                                     marks={str(dist): dict(label=str(dist)+'m', style={"color": "#7fafdf"}) for dist in
                                            METERS},
                                     step=None,
@@ -295,14 +291,24 @@ def return_poi(selected_poi):
     text = "What additional distance are you ok to walk to avoid a {} ?".format(poi_dict[selected_poi])
     return text
 
+# @app.callback(
+#     Output("output_address", "children"),
+#     [Input("slider-container","value"),Input('poi-selection','value')])
+# def transform_network(selected_poi,dist):
+#     gdf_nodes, gdf_edges = ox.graph_to_gdfs(G)
+#     poi_imped = selected_poi + '_' + 'impedance'
+#     gdf_edges[poi_imped] = gdf_edges[poi].astype(int)*dist + gdf_edges['length'].astype(float)
+#     G = ox.graph_from_gdfs(gdf_nodes, gdf_edges)
+#     return gdf_edges
+
 @app.callback(
     [Output("output_address", "children"),Output("map-route", "figure")],
-    [Input("dynamic-start","value"),Input("dynamic-end",'value'),Input('poi-selection','value')],
+    [Input("dynamic-start","value"),Input("dynamic-end",'value'),Input('poi-selection','value'),Input("dist-slider","value")],
     [State("map-route", "figure")])
 
-def update_figure(start,end,selected_poi,figure):
+def update_figure(start,end,selected_poi,slider_dist,figure):
     poi_filename = selected_poi + '.csv'
-    poi_imped = selected_poi + '_' + 'impedance'
+    poi_imped = selected_poi + '_' + 'impedance'+'_'+ str(slider_dist)
     poi_dict = {'restaurant':'restaurants', 'fast_food':'fast-Foods','bar':'bars'}
 
     if start != '' and end != '':
@@ -322,7 +328,6 @@ def update_figure(start,end,selected_poi,figure):
         names_health,lons_health,lats_health = lineToPoints(gdf_route_edges_health)
         names_short,lons_short,lats_short = lineToPoints(gdf_route_edges_short)
         # lats_cleaned,lons_cleaned = [x for x in list(lats_health) if str(x) != 'None'],[x for x in list(lons_health) if str(x) != 'None']
-        print(startend.lon,startend.lat)
         fig = go.Figure()
 
         fig.add_trace(go.Scattermapbox(
