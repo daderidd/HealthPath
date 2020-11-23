@@ -251,7 +251,11 @@ app.layout = html.Div(
 
             html.Div(
                 id='map-container',
-                children=[
+                children=[dcc.Loading(
+            id="loading-1",
+            type="default",
+            children=html.Div(id="loading-output-1")
+        ),
                     dcc.Graph(
                         id='map-route',
                         figure=dict(
@@ -359,7 +363,7 @@ def update_figure(start,end,selected_poi,slider_dist,figure):
             hoverinfo = 'text',
             textfont=dict(
                 family="sans serif",
-                size=14,
+                size=16,
                 color="crimson")
             ))
 
@@ -401,7 +405,7 @@ def update_figure(start,end,selected_poi,slider_dist,figure):
             title_font_family="Open Sans",
             font=dict(
             family="Helvetica",
-            size=12,
+            size=16,
             color="white")),
             margin={"r": 0, "t": 0, "l": 0, "b": 0})
 

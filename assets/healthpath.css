@@ -647,7 +647,7 @@ hr {
     background-color: #252e3f;
     margin-bottom: 3rem;
     padding: 2rem 6rem 4rem 4rem;
-    height: 8rem;}
+    height: 16rem;}
 
 .rc-slider-dot-active, .rc-slider-handle {
     border-color: #2cfec1 !important;
@@ -708,7 +708,7 @@ hr {
     #left-column {
         margin-right: 1.5%;
         display: flex;
-        min-width: 800px;
+        min-width: 60rem;
         flex-direction: column;
         justify-content: flex-start;
         flex: 4 40%;
@@ -744,7 +744,7 @@ hr {
     /*For desktop*/
     #logo {
         float: right;
-        padding-right: 3rem;
+        padding-right: 2rem;
     }
 
     #header p {
@@ -757,6 +757,7 @@ hr {
         min-height: 80rem;
         display: flex;
         flex-direction: column;
+        align-items: stretch;
         justify-content: flex-start;
     }
 
@@ -851,17 +852,17 @@ hr {
 @media (min-width: 1251px) {
     /*For desktop*/
     #app-container {
-        width : 100%;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: stretch;
+        height:90rem;
         margin-bottom: 5rem;
     }
 }
 
 #header {
-    margin-left: 0%;
+    margin-left: 1.5%;
 }
 
 
