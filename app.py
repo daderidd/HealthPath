@@ -25,6 +25,7 @@ data_folder = Path('./Data')
 app = dash.Dash(__name__,
                 meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}], )
 server = app.server
+app.title = 'HealthPath'
 
 # Mapbox
 
@@ -190,8 +191,20 @@ app.layout = html.Div(
                             id = 'address-container',
                             children=[
                                 html.H4('What is your itinerary?'),
-                                html.Label(["Starting point", dcc.Dropdown(id="dynamic-start")]),
-                                html.Label(["Destination", dcc.Dropdown(id="dynamic-end")]),
+                                html.Label(["Starting point", dcc.Dropdown(id="dynamic-start",
+                                                                           style=
+                                                                                {'width': '120rem',
+                                                                                 'font-size': '16px',
+                                                                                  'color': '#ffffff',
+                                                                                  'background-color': '#ffffff',
+                                                                                })]),
+                                html.Label(["Destination", dcc.Dropdown(id="dynamic-end",
+                                                                           style =
+                                                                                    {'width': '120rem',
+                                                                                     'font-size': '16px',
+                                                                                     'color': '#ffffff',
+                                                                                     'background-color': '#ffffff',
+                                                                                     })]),
                             ],
                         ),
 
@@ -205,6 +218,11 @@ app.layout = html.Div(
                                         {'label': 'Restaurants', 'value': 'restaurant'},
                                         {'label': 'Bars', 'value': 'bar'}
                                     ],
+                                    style =
+                                        {'width': '120rem',
+                                         'font-size': '16px',
+                                         'color': '#ffffff',
+                                         'background-color': '#ffffff'},
                                     value='fast_food',
                                 ),
                             ],
@@ -243,7 +261,7 @@ app.layout = html.Div(
                             )],
                             layout=dict(
                                 margin={"r": 0, "t": 0, "l": 0, "b": 0},
-                                height = 600,
+                                height = 800,
                                 mapbox=dict(
                                     layers=[],
                                     style='carto-darkmatter',
@@ -251,7 +269,7 @@ app.layout = html.Div(
                                         lat=46.22, lon=6.14
                                     ),
                                     pitch=0,
-                                    zoom=10.3,
+                                    zoom=10.8,
                                     ),
                                 ),
                             ),
@@ -335,7 +353,7 @@ def update_figure(start,end,selected_poi,slider_dist,figure):
             mode="markers+text",
             lon=startend.lon,
             lat = startend.lat,
-            marker=go.scattermapbox.Marker(size= 15, symbol= ["marker",'marker']),
+            marker=go.scattermapbox.Marker(size= 15,color = 'grey'),
             text=startend.type,
             showlegend = False,
             textposition="bottom right",
@@ -359,6 +377,7 @@ def update_figure(start,end,selected_poi,slider_dist,figure):
             lon = lons_health,
             lat = lats_health,
             hovertext=names_health,
+            line=dict(width=4),
         ))
 
         fig.add_trace(go.Scattermapbox(

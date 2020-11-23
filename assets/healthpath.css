@@ -218,7 +218,7 @@
 html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
-    font-size: 50%;
+    font-size: 65%;
     background-color: #191e26;
     max-width: 100% !important;
     width: 100% !important;
@@ -337,11 +337,11 @@ p {
 
 @media only screen and (max-width: 550px) {
     .rc-slider-mark-text {
-        font-size: 50%;
+        font-size: 65%;
     }
 
     #description {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -578,7 +578,7 @@ input,
 textarea,
 select,
 fieldset {
-    margin-bottom: 0;
+    margin-bottom: 1rem;
 }
 
 pre,
@@ -586,7 +586,7 @@ dl,
 figure,
 table,
 form {
-    margin-bottom: 0;
+    margin-bottom: 1rem;
 }
 
 p,
@@ -643,8 +643,10 @@ hr {
 
 #slider-container {
     background-color: #252e3f;
+    margin-bottom: 3rem;
     padding: 2rem 6rem 4rem 4rem;
     height: 8rem;
+    width: 110rem;
 }
 
 .rc-slider-dot-active, .rc-slider-handle {
@@ -661,7 +663,7 @@ hr {
 
 /* Heatmap
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-#heatmap-container {
+#map-route {
     margin: 2.5rem 0 0 0;
     background-color: #252e3f;
 }
@@ -677,7 +679,7 @@ hr {
 }
 
 @media (min-width: 1251px) {
-    #heatmap-container {
+    #map-container {
         flex-grow: 1;
         display: flex;
         flex-direction: column;
@@ -717,7 +719,7 @@ hr {
 /* Graph
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-#graph-container {
+#map-container {
     background-color: #252e3f;
     padding: 5rem;
     margin: 0;
@@ -729,7 +731,7 @@ hr {
         text-align: center;
     }
 
-    #graph-container {
+    #map-container {
         margin-top: 5rem;
     }
 
@@ -749,7 +751,7 @@ hr {
         font-size: 1.5rem;
     }
 
-    #graph-container {
+    #map-container {
         flex: 4 40%;
         margin: 0;
         display: flex;
@@ -764,7 +766,7 @@ hr {
 }
 
 @media (max-width: 550px) {
-    #graph-container {
+    #map-container {
         padding: 2.5rem;
     }
 
@@ -778,9 +780,16 @@ hr {
 }
 
 
-#chart-dropdown {
-    margin-bottom: 6.6rem;
+#dynamic-start {
+    margin-bottom: 3rem;
 }
+#dynamic-end {
+    margin-bottom: 3rem;
+}
+#dropdown-amenity {
+    margin-bottom: 3rem;
+}
+
 
 /* Dropdown
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -840,7 +849,7 @@ hr {
         flex-direction: row;
         justify-content: flex-start;
         align-items: stretch;
-        height: 100rem;
+        height: 92rem;
         margin-bottom: 5rem;
     }
 }
