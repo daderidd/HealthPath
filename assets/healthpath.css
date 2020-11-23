@@ -711,7 +711,6 @@ hr {
         min-width: 800px;
         flex-direction: column;
         justify-content: flex-start;
-        align-content: center;
         flex: 4 40%;
     }
 }
@@ -755,6 +754,7 @@ hr {
     #map-container {
         flex: 6 60%;
         margin: 0;
+        min-height: 80rem;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -764,6 +764,7 @@ hr {
         flex: 6 60%;
         margin: 0;
         min-height: 80rem;
+        min-width: 80rem;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
