@@ -218,7 +218,7 @@
 html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
-    font-size: 65%;
+    font-size: 50%;
     background-color: #191e26;
     max-width: 100% !important;
     width: 100% !important;
@@ -325,23 +325,25 @@ p {
 }
 
 #logo {
-    height: 14rem;
+    height: 12rem;
+    width: 12rem;
+
     margin-bottom: 3rem;
 }
 
 #slider-text, #chart-selector {
     margin-bottom: 2rem !important;
-    font-size: 2rem;
+    font-size: 2.6rem;
 }
 
 
 @media only screen and (max-width: 550px) {
     .rc-slider-mark-text {
-        font-size: 65%;
+        font-size: 60%;
     }
 
     #description {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 }
 
@@ -645,9 +647,7 @@ hr {
     background-color: #252e3f;
     margin-bottom: 3rem;
     padding: 2rem 6rem 4rem 4rem;
-    height: 8rem;
-    width: 110rem;
-}
+    height: 8rem;}
 
 .rc-slider-dot-active, .rc-slider-handle {
     border-color: #2cfec1 !important;
@@ -663,7 +663,7 @@ hr {
 
 /* Heatmap
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-#map-route {
+#heatmap-container {
     margin: 2.5rem 0 0 0;
     background-color: #252e3f;
 }
@@ -679,7 +679,7 @@ hr {
 }
 
 @media (min-width: 1251px) {
-    #map-container {
+    #heatmap-container {
         flex-grow: 1;
         display: flex;
         flex-direction: column;
@@ -708,10 +708,11 @@ hr {
     #left-column {
         margin-right: 1.5%;
         display: flex;
+        min-width: 800px;
         flex-direction: column;
         justify-content: flex-start;
         align-content: center;
-        flex: 6 60%;
+        flex: 4 40%;
     }
 }
 
@@ -735,8 +736,8 @@ hr {
         margin-top: 5rem;
     }
 
-    #selected-data {
-        height: 55rem;
+    #map-route {
+        height: 75rem;
     }
 }
 
@@ -752,17 +753,21 @@ hr {
     }
 
     #map-container {
-        flex: 4 40%;
+        flex: 6 60%;
         margin: 0;
         display: flex;
         flex-direction: column;
-        align-items: stretch;
         justify-content: flex-start;
     }
 
-    #selected-data {
-        flex-grow: 1;
-    }
+    #map-route {
+        flex: 6 60%;
+        margin: 0;
+        min-height: 80rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        flex-grow: 2;}
 }
 
 @media (max-width: 550px) {
@@ -845,17 +850,17 @@ hr {
 @media (min-width: 1251px) {
     /*For desktop*/
     #app-container {
+        width : 100%;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: stretch;
-        height: 92rem;
         margin-bottom: 5rem;
     }
 }
 
 #header {
-    margin-left: 1.5%;
+    margin-left: 0%;
 }
 
 

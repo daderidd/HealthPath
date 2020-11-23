@@ -172,7 +172,7 @@ app.layout = html.Div(
         html.Div(
             id="header",
             children=[
-                html.Img(id="logo", src=app.get_asset_url("logo_transparent.png"), height=120, width=120),
+                html.Img(id="logo", src=app.get_asset_url("logo_transparent.png")),
                 html.H2(children="HealthPath - Reduce the caloric pressure around you"),
                 html.P(
                     id="description",
@@ -193,14 +193,14 @@ app.layout = html.Div(
                                 html.H4('What is your itinerary?'),
                                 html.Label(["Starting point", dcc.Dropdown(id="dynamic-start",
                                                                            style=
-                                                                                {'width': '120rem',
+                                                                                {
                                                                                  'font-size': '16px',
                                                                                   'color': '#ffffff',
                                                                                   'background-color': '#ffffff',
                                                                                 })]),
                                 html.Label(["Destination", dcc.Dropdown(id="dynamic-end",
                                                                            style =
-                                                                                    {'width': '120rem',
+                                                                                    {
                                                                                      'font-size': '16px',
                                                                                      'color': '#ffffff',
                                                                                      'background-color': '#ffffff',
@@ -219,7 +219,7 @@ app.layout = html.Div(
                                         {'label': 'Bars', 'value': 'bar'}
                                     ],
                                     style =
-                                        {'width': '120rem',
+                                        {
                                          'font-size': '16px',
                                          'color': '#ffffff',
                                          'background-color': '#ffffff'},
@@ -261,7 +261,6 @@ app.layout = html.Div(
                             )],
                             layout=dict(
                                 margin={"r": 0, "t": 0, "l": 0, "b": 0},
-                                height = 800,
                                 mapbox=dict(
                                     layers=[],
                                     style='carto-darkmatter',
