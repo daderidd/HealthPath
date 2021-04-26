@@ -252,11 +252,12 @@ app.layout = html.Div(
             html.Div(
                 id='map-container',
                 children=[dcc.Loading(
-            id="loading-1",
-            type="default",
-            children=html.Div(id="loading-output-1")
-        ),
-                    dcc.Graph(
+                        id="loading-1",
+                            type="default",
+                            children=html.Div(
+                            id="loading-output-1")
+                    ),
+                        dcc.Graph(
                         id='map-route',
                         figure=dict(
                             data=[dict(
@@ -330,7 +331,7 @@ def return_poi(selected_poi):
 def update_figure(start,end,selected_poi,slider_dist,figure):
     poi_filename = selected_poi + '.csv'
     poi_imped = selected_poi + '_' + 'impedance'+'_'+ str(slider_dist)
-    poi_dict = {'restaurant':'restaurants', 'fast_food':'fast-Foods','bar':'bars'}
+    poi_dict = {'restaurant':'restaurants', 'fast_food':'fast-foods','bar':'bars'}
 
     if start != '' and end != '':
         origin_address, dest_address = regbl_df[regbl_df.address == start], regbl_df[regbl_df.address == end]

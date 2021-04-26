@@ -325,8 +325,8 @@ p {
 }
 
 #logo {
-    height: 12rem;
-    width: 12rem;
+    height: 15rem;
+    width: 15rem;
 
     margin-bottom: 3rem;
 }
@@ -727,6 +727,10 @@ hr {
 
 @media (max-width: 1250px) {
     /*For mobile and smaller screens*/
+    #logo {
+        float: right;
+        padding-right: 2rem;
+    }
     #header h4 {
         text-align: center;
     }
