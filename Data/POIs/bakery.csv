@@ -1,81 +1,86 @@
-unique_id,osmid,element_type,addr:housenumber,addr:street,name,opening_hours,shop,wheelchair,geometry,created_by,addr:city,addr:postcode,opening_hours:covid19,phone,access:covid19,delivery:covid19,source,addr:country,note,survey:date,wheelchair:description,website,name:de,name:fr,payment:cash,payment:coins,payment:credit_cards,operator,amenity,level,takeaway,email,payment:debit_cards,id,lon,lat
-node/322008400,322008400,node,,,,,bakery,no,POINT (6.1852932 46.1674315),Potlatch 0.10f,,,,,,,,,,,,,,,,,,,,,,,,0,6.1852932,46.1674315
-node/413515782,413515782,node,,,,,bakery,,POINT (6.1633276 46.2048161),,Genève,,,,,,,,,,,,,,,,,,,,,,,1,6.1633276,46.2048161
-node/447808765,447808765,node,16,Promenade des Champs-Fréchets,Pouly Boulangerie,Mo-Fr 06:00-16:45; Su 06:00-16:45,bakery,yes,POINT (6.078212000000001 46.2374333),,Meyrin,1217.0,,,,,,,,,,,,,,,,,,,,,,2,6.078212000000001,46.2374333
-node/680227918,680227918,node,,,,,bakery,,POINT (6.1551485 46.1746557),,,,,,,,,,,,,,,,,,,,,,,,,3,6.1551485,46.1746557
-node/725251842,725251842,node,5,Rue du Beulet,Boulangerie Salon de thé Gloria,,bakery,,POINT (6.1255815 46.2049629),,Genève,1203.0,open,,yes,no,,,,,,,,,,,,,,,,,,4,6.1255815,46.2049629
-node/1286683108,1286683108,node,,,Boulangerie L' Epi Doré Sarl - Mme Lucia Peixoto,,bakery,yes,POINT (6.1421895 46.1975401),,,1205.0,,,,,,,,,,,,,,,,,,,,,,5,6.1421895,46.197540100000005
-node/1318416199,1318416199,node,,,,,bakery,,POINT (6.1185767 46.1903174),,,,,,,,,,,,,,,,,,,,,,,,,6,6.1185767,46.1903174
-node/1318707359,1318707359,node,,,Petit Prince,,bakery,,POINT (6.1166788 46.1894956),,,,,,,,,,,,,,,,,,,,,,,,,7,6.1166788,46.1894956
-node/1459565474,1459565474,node,,,Au fournil de Carouge,,bakery,limited,POINT (6.1409672 46.1873779),,,,off,,,,,,,,,,,,,,,,,,,,,8,6.1409671999999995,46.1873779
-node/1634621723,1634621723,node,60,Rue Ancienne,Choco Shop,,bakery,no,POINT (6.1406892 46.18118939999999),,Carouge,1227.0,,,,,survey,CH,Alex-7 with OSMpad,2013-01-15,seuil d'entrée=12.5cm; hauteur sous table=72cm; WC aux même étages=non; dimension WC=140x83,,,,,,,,,,,,,9,6.1406892,46.181189399999994
-node/1637885081,1637885081,node,61,Route de Florissant,Wolfisberg,,bakery,yes,POINT (6.163493900000001 46.1928344),,Genève,1206.0,,,,,,CH,,,"hauteur sous table=73cm, WC au même étage=oui, dimension WC=120x182, espace libre à côté des WC=85cm",,,,,,,,,,,,,10,6.163493900000001,46.192834399999995
-node/1637937302,1637937302,node,56,Rue du Village,Paquier,Mo-Fr 06:00-18:30; Su 07:00-12:40,bakery,,POINT (6.0810794 46.2129438),,Vernier,,,,,,,,,,,,,,,,,,,,,,,11,6.0810794,46.2129438
-node/1805041720,1805041720,node,,,Oberson,,bakery,limited,POINT (6.1308793 46.2115426),,,,,,,,,,,,,,,,,,,,,,,,,12,6.1308793,46.2115426
-node/1867148884,1867148884,node,217,Route d'Aire-la-Ville,Boulangerie-Pâtisserie-Salon de Thé Oberson,,bakery,yes,POINT (6.0329635 46.21311710000001),,,1242.0,,,,,,,,,,,,,,,,,,,,,,13,6.0329635,46.213117100000005
-node/1914679877,1914679877,node,,,Salon de thé de l’Athénée,,bakery,,POINT (6.155179 46.1947576),,,,,,,,,,,,,,,,,,,,,,,,,14,6.155179,46.1947576
-node/1917476072,1917476072,node,,,,,bakery,,POINT (6.1379975 46.1966336),,Genève,,,,,,,,,,,,,,,,,,,,,,,15,6.1379975,46.1966336
-node/1936592167,1936592167,node,,,,,bakery,,POINT (6.1437713 46.1920585),,,,,,,,,,,,,,,,,,,,,,,,,16,6.1437713,46.1920585
-node/1936592168,1936592168,node,61,Rue de Carouge,,,bakery,,POINT (6.1440871 46.1923055),,Genève,1205.0,,,,,,,,,,,,,,,,,,,,,,17,6.1440871,46.192305499999996
-node/1983459568,1983459568,node,,,Boulangerie du Bouchet,,bakery,,POINT (6.117902 46.2168026),,,,,,,,,,,,,,,,,,,,,,,,,18,6.117902,46.2168026
-node/2050880326,2050880326,node,64,rue de Lausanne,Café Loichet,,bakery,,POINT (6.1471487 46.2153631),,,1202.0,,,,,,,,,,,,,,,,,,,,,,19,6.1471487,46.2153631
-node/2069991333,2069991333,node,,,Braga,,bakery,,POINT (6.156393 46.1984982),,,,,,,,,,,,,,,,,,,,,,,,,20,6.1563930000000004,46.1984982
-node/2069991511,2069991511,node,,,Mage,,bakery,yes,POINT (6.163494999999999 46.1965153),,,,,,,,,,,,,,,,,,,,,,,,,21,6.163494999999999,46.1965153
-node/2107473914,2107473914,node,,,,,bakery,,POINT (6.1850896 46.2034945),,,,,,,,,,,,,,,,,,,,,,,,,22,6.1850895999999995,46.2034945
-node/2184636205,2184636205,node,,,La favorite,,bakery,,POINT (6.1292504 46.2130349),,Genève,,,,,,,,,,,,,,,,,,,,,,,23,6.1292504,46.2130349
-node/2188913107,2188913107,node,60,Boulevard Carl-Vogt,,,bakery,,POINT (6.1358986 46.1978427),,Genève,,,,,,survey,CH,surveyed by Alex-7,2013-03-06,,,,,,,,,,,,,,24,6.1358986,46.1978427
-node/2255488638,2255488638,node,,,Tea Room Les Gourmandises d'Emilie,,bakery,,POINT (6.1531552 46.1973049),,,,,,,,,,,,,,,,,,,,,,,,,25,6.1531552000000005,46.1973049
-node/2266023895,2266023895,node,9,Rue de Saint-Jean,Boulangerie Ruckstuhl,,bakery,,POINT (6.1262333 46.2045734),,Genève,1203.0,open,,yes,no,,,,,,,Bäkerei Ruckstuhl,Boulangerie Ruckstuhl,yes,yes,yes,,,,,,,26,6.1262333,46.2045734
-node/2302910961,2302910961,node,,,Pain Paillasse,,bakery,yes,POINT (6.139680599999999 46.1956494),,Genève,,,,,,,,,,,,,,,,,,,,,,,27,6.139680599999999,46.1956494
-node/2311537504,2311537504,node,29,Route de Colovrex,Le Grand Sac' à Pain,"Tu-Fr 06:00-18:30, Sa 06:00-17:00, Su 06:30-13:30",bakery,,POINT (6.1255468 46.23558010000001),,Le Grand-Saconnex,1218.0,,+41 22 788 05 04,,,,,,,,,,,,,,Jeanneret Benedict et Yaima,,,,,,28,6.1255468,46.23558010000001
-node/2319855987,2319855987,node,,,,,bakery,,POINT (6.1067517 46.2255181),,,,,,,,,,,,,,,,,,,,,,,,,29,6.1067517,46.2255181
-node/2378449308,2378449308,node,5,Place de la Mairie,,,bakery,,POINT (6.1488691 46.1602511),,Troinex,,,,,,,,,,,,,,,,,,,,,,,30,6.1488691,46.160251099999996
-node/2627565102,2627565102,node,,,,,bakery,,POINT (6.1221277 46.1754049),,,,,,,,,,,,,,,,,,,,,,,,,31,6.1221277,46.1754049
-node/2724000353,2724000353,node,,,,,bakery,,POINT (6.1614741 46.2016305),,,,,,,,,,,,,,,,,,,,,,,,,32,6.1614740999999995,46.2016305
-node/2925924201,2925924201,node,285,Route de Saint-Julien,Pause Gourmande,,bakery,,POINT (6.094046 46.154753),,Perly,1258.0,,+41 22 771 21 81,,,,,,,,,,,,,,,cafe,,,,,33,6.094046,46.154753
-node/2943962263,2943962263,node,87,Rue de Graman,Boulangerie Patisserie,,bakery,,POINT (6.2323721 46.2113481),,Puplinge,1241.0,,,,,,,,,,,,,,,,,,,,,,34,6.2323721,46.2113481
-node/2946346774,2946346774,node,,,,,bakery,,POINT (6.1943359 46.1974696),,,,,,,,,,,,,,,,,,,,,,,,,35,6.1943359000000004,46.1974696
-node/2946386690,2946386690,node,,,Boulangerie Patisserie,,bakery,,POINT (6.190999 46.1961567),,,,,,,,,,,,,,,,,,,,,,,,,36,6.190999,46.1961567
-node/3004096572,3004096572,node,318,Route de Jussy,Boulangerie Sésame Noir,Tu-Fr 6:30-17:00; Sa-Su 7:00-17:00,bakery,,POINT (6.265727 46.2349631),,Jussy,1254.0,,,,,,,Boulangerie - Patisserie - Tea-Room,,,,,Sesame Noir,,,,,,,,,,37,6.265727,46.2349631
-node/3070162697,3070162697,node,,,,,bakery,,POINT (6.2444047 46.301905),,,,,,,,,,,,,,,,,,,,,,,,,38,6.2444047,46.301905
-node/3384497888,3384497888,node,106,Avenue du Bois-de-la-Chapelle,Boulangerie Philippe Taillé,,bakery,,POINT (6.100440499999999 46.1849995),,Onex,1213.0,,,,,,,,,,,,,,,,Philippe Taillé,,,,,,39,6.1004404999999995,46.184999499999996
-node/3727149826,3727149826,node,299,Route de Meyrin,Oberson,Mo-Fr 06:00-18:30; Sa-Su 06:00-13:30,bakery,,POINT (6.0717915 46.2286799),,Meyrin,1217.0,,+41 22 782 10 45,,,,,,,,www.boulangerie-oberson.ch,,,,,,Boulangerie Oberson SA,,0.0,,,,40,6.0717915,46.2286799
-node/3735051671,3735051671,node,,,BrezelKönig,,bakery,limited,POINT (6.1418869 46.2101929),,,,,,,,,,,,,,,,,,,,,0.0,,,,41,6.1418869,46.2101929
-node/3735051675,3735051675,node,,,Pougnier,,bakery,limited,POINT (6.142093 46.2100975),,,,,,,,,,,,,,,,,,,,,0.0,,,,42,6.142093,46.210097499999996
-node/3735083507,3735083507,node,,,Aimé Pouly,,bakery,,POINT (6.1424605 46.20983289999999),,,,,,,,,,,,,,,,,,,,,-1.0,yes,,,43,6.1424605,46.209832899999995
-node/3735097195,3735097195,node,,,Pougnier,,bakery,limited,POINT (6.1427862 46.21072720000001),,,,,,,,,,,,,,,,,,,,,1.0,,,,44,6.1427862,46.21072720000001
-node/3750859334,3750859334,node,9,Rond-Point de Plainpalais,Aux Merveilleux de Fred,"Mo-Sa 07:30-18:30, Th 07:30-19:30, Sa 08:00-18:30, Su off",bakery,limited,POINT (6.143366700000001 46.197525),,Genève,1205.0,,+41 22 436 80 60,,,,,,,,http://www.auxmerveilleux.com/,,,,,,,,,,contact@auxmerveilleux.ch,,45,6.1433667000000005,46.197525
-node/3769728655,3769728655,node,,,,Opens Mon-Sat at 06.00,bakery,,POINT (6.1277246 46.22278060000001),,Genève,1209.0,,,,,,,,,,,,,,,,,,,,,,46,6.1277246,46.22278060000001
-node/4025858152,4025858152,node,,,,,bakery,,POINT (6.1331102 46.2193859),,Genève,,,,,,,,,,,,,,,,,,,,,,,47,6.1331102,46.2193859
-node/4069953373,4069953373,node,,,Rucksthul,,bakery,,POINT (6.1412662 46.21961870000001),,,,,,,,,,,,,,,,,,,,,,,,,48,6.1412662000000005,46.219618700000005
-node/4222276770,4222276770,node,,,,,bakery,,POINT (6.136833 46.2101881),,,,,,,,,,,,,,,,,,,,,,,,,49,6.136833,46.210188099999996
-node/4224270316,4224270316,node,,,,,bakery,,POINT (6.1232758 46.2240799),,,,,,,,,,,,,,,,,,,,,,,,,50,6.1232758,46.2240799
-node/4230238931,4230238931,node,2,Chemin Docteur Adolphe-Pasteur,Boulangerie Eric Emery,"Mo-Fr 06:30-18:30, Su 06:30-13:00",bakery,,POINT (6.1294169 46.2208921),,Genève,1209.0,,,,,,,,,,https://www.eric-emery.ch,,,,,,,,,,,,51,6.1294169,46.2208921
-node/4297395201,4297395201,node,2,Avenue des Communes-Réunies,Boulangerie,,bakery,,POINT (6.1201947 46.1828564),,,1212.0,,,,,,,,,,,,,,,,,,,,,,52,6.1201947,46.1828564
-node/4337412742,4337412742,node,4,Rue de Lyon,Isid Oro,"Mo-Fr 11:00-14:30, 09:00-18:00",bakery,,POINT (6.1385779 46.20928720000001),,,,,,,,,,,,,,,,,,,,,,,,,53,6.1385779000000005,46.209287200000006
-node/4351533780,4351533780,node,,,,Mo-Fr 06:00-17:00,bakery,,POINT (6.140232900000001 46.2098189),,,,,+41 22 734 05 25,,,,,,,,,,,,,,,,,,,,54,6.140232900000001,46.2098189
-node/4358577791,4358577791,node,,,BISA,,bakery,,POINT (6.1301365 46.1853463),,,,,,,,,,,,,,,,,,,,,,,,,55,6.1301365,46.1853463
-node/4358768892,4358768892,node,4,Rue Baylon,Roco Guerrazzi,,bakery,,POINT (6.1353949 46.1814096),,,1227.0,,+41223426060,,,,,,,,http://rocco-guerrazzi.ch,,,,,,,,,,,,56,6.1353949,46.1814096
-node/4394631293,4394631293,node,,,Boulangerie Rostkalz Sarl,,bakery,,POINT (6.121116099999999 46.213686),,,,,,,,,,,,,,,,,,,,,,,,,57,6.121116099999999,46.213685999999996
-node/4397585189,4397585189,node,4,Rue Caroline,Boulangerie Gillard,,bakery,,POINT (6.1384798 46.1921771),,,1227.0,,+41223426074,,,,,,,,,,,,,,,,,,,,58,6.1384798,46.1921771
-node/4397710090,4397710090,node,154,Route de Thonon,BISA - Boulangerie Ondustrielle SA,,bakery,,POINT (6.2159065 46.24737529999999),,Vésenaz,1222.0,,+41228559700,,,,,,,,,,,,,,,,,,,,59,6.2159065,46.247375299999995
-node/4402669092,4402669092,node,11,Chemin du 23-Août,Boulangerie Leonhard Bretzel Sarl,"Mo-Fr 06:30-17:00; Sa,Su 07:30-14:30",bakery,,POINT (6.1347117 46.2018761),,,1205.0,,,,,,,,,,,,,,,,,,,,,,60,6.1347116999999995,46.2018761
-node/4407893106,4407893106,node,,,Tea-room Le Jardin,Tu-Su 08:00-20:00,bakery,,POINT (6.1142489 46.20505170000001),,,1203.0,,,,,,,,,,,,Tea-room Le Jardin,,,,,,,,,,61,6.1142489,46.205051700000006
-node/4435910090,4435910090,node,49,Route des Jeunes,Europain - Lima Castro,,bakery,,POINT (6.130015599999999 46.1815409),,,1227.0,,+41763282269,,,,,,,,,,,,,,,,,,,,62,6.130015599999999,46.1815409
-node/4534475292,4534475292,node,,,Tea Room Ph. Taillé,,bakery,,POINT (6.140116099999999 46.1806727),,,1227.0,,,,,,,,,,,,Tea Room Ph. Taillé,,,,,,,,,,63,6.140116099999999,46.1806727
-node/4553758114,4553758114,node,,,Le Panetier,"Mo-Fr 06:00-19:00, Sa 06:30-18:30, Su 07:00-18:30",bakery,,POINT (6.1481113 46.23727279999999),,Geneva,,,,,,,,,,,,,,,,,,,,,,,64,6.1481113,46.23727279999999
-node/4663104197,4663104197,node,3,Rue de la Confédération (les Rues Basses),Chocolaterie du Rhône,,bakery,,POINT (6.143964 46.20393679999999),,,,,,,,,,,,,,,Du Rhone Chocolatier,,,,,,,,,,65,6.1439639999999995,46.203936799999994
-node/5163691225,5163691225,node,,,Berger de Faletans - chocolaterie pâtisserie,"Mo 7:30-15:00,Tu-Fr 7:30-18:00, Sa 7:30-17:00",bakery,,POINT (6.1420699 46.1957807),,,,,+41223291202,,,,,,,,http://www.berger-defaletans.ch,,,,,,,,,,,,66,6.1420699,46.1957807
-node/5829106535,5829106535,node,,,La Couronne,Mo-Su 07:00-18:00,bakery,,POINT (6.223996499999999 46.26299479999999),,,,,+41227518214,,,,,,,,,,,,,,,,,,,,67,6.223996499999999,46.262994799999994
-node/6048362707,6048362707,node,,,Ruckstuhl,Mo-Th 06:00-17:00; Fr 06:00-16:00,bakery,yes,POINT (6.0626801 46.2224574),,,,,,,,,,,,,,,,,,,,,,,,,68,6.0626801,46.222457399999996
-node/6198307985,6198307985,node,65,Rue des Bains,Boulangerie des Bains,Mo-Fr 04:30-18:30; Sa 05:00-17:30,bakery,,POINT (6.137554799999999 46.20123570000001),,,1205.0,,+41 22 328 41 70,,,,,,,,https://www.boulangeriedesbains.ch/,,,,,,,,,,,,69,6.137554799999999,46.201235700000005
-node/6443395187,6443395187,node,,,Boulangerie Patisserie,,bakery,,POINT (6.1377047 46.191841),,,,,,,,,,,,,,,,,,,,,,,,,70,6.1377047,46.191841
-node/6799821852,6799821852,node,,,Pouly,,bakery,,POINT (6.1450347 46.2082074),,,,,,,,,,,,,,,,,,,,,,,,,71,6.1450347,46.2082074
-node/6940436906,6940436906,node,,,,,bakery,,POINT (6.141259900000001 46.1849131),,,,,,,,,,,,,,,,,,,,,,,,,72,6.1412599000000005,46.1849131
-node/6956877033,6956877033,node,4-6,Esplanade de Pont-Rouge,Pouly,Mo-Fr 06:00-17:00,bakery,,POINT (6.1261208 46.1872526),,Petit-Lancy,1212.0,,+41 22 346 43 66,,,,,,,,,,,yes,yes,yes,,,,,,yes,73,6.1261208,46.1872526
-node/7077680148,7077680148,node,28,Rue Jean-Violette,Chez Boubou,Mo-Sa 06:30-19:00,bakery,,POINT (6.146252400000001 46.1937208),,Genève,1205.0,,,,,,,,,,,,,,,,,,,,,,74,6.146252400000001,46.1937208
-node/7077741561,7077741561,node,4,avenue du Mail,Pouly,Mo-Su 06:00-14:00,bakery,,POINT (6.1395859 46.2000614),,,,,,,,,,,,,,,,,,,,,,,,,75,6.1395859,46.2000614
-node/7077965451,7077965451,node,91,Rue de Carouge,Le Saint Honoré,Mo-Su 06:00-19:00,bakery,,POINT (6.1431963 46.188818),,Genève,1205.0,,+41 22 329 06 65,,,,,,,,,,,,,,,,,,,,76,6.1431963,46.188818
-node/7090715293,7090715293,node,,,Cuppin’s,,bakery,,POINT (6.1574157 46.20089960000001),,,,,,,,,,,,,,,,,,,,,,,,,77,6.1574157,46.20089960000001
-node/7090736787,7090736787,node,,,,,bakery,,POINT (6.144203099999999 46.2038657),,,,,,,,,,,,,,,,,,,,,,,,,78,6.1442030999999995,46.2038657
-node/7090741286,7090741286,node,,,Pouly,,bakery,,POINT (6.1493982 46.19976279999999),,,,,,,,,,,,,,,,,,,,,,,,,79,6.1493982,46.199762799999995
+unique_id,osmid,element_type,addr:housenumber,addr:street,name,opening_hours,shop,wheelchair,geometry,created_by,addr:city,addr:postcode,opening_hours:covid19,phone,access:covid19,delivery:covid19,source,addr:country,note,survey:date,wheelchair:description,air_conditioning,operator,website,name:de,name:fr,payment:cash,payment:coins,payment:credit_cards,amenity,takeaway,level,email,contact:email,payment:maestro,payment:mastercard,payment:visa,check_date:opening_hours,payment:debit_cards,id,lon,lat
+node/322008400,322008400,node,,,,,bakery,no,POINT (6.1852932 46.1674315),Potlatch 0.10f,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,6.1852932,46.1674315
+node/413515782,413515782,node,,,,,bakery,,POINT (6.1633276 46.2048161),,Genève,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,6.1633276,46.2048161
+node/447808765,447808765,node,16,Promenade des Champs-Fréchets,Pouly Boulangerie,Mo-Fr 06:00-16:45; Su 06:00-16:45,bakery,yes,POINT (6.078212 46.2374333),,Meyrin,1217,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,6.078212,46.2374333
+node/680227918,680227918,node,,,,,bakery,,POINT (6.1551485 46.1746557),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,6.1551485,46.1746557
+node/725251842,725251842,node,5,Rue du Beulet,Boulangerie Salon de thé Gloria,,bakery,,POINT (6.1255815 46.2049629),,Genève,1203,open,,yes,no,,,,,,,,,,,,,,,,,,,,,,,,4,6.1255815,46.2049629
+node/1286683108,1286683108,node,,,Boulangerie L' Epi Doré Sarl - Mme Lucia Peixoto,,bakery,yes,POINT (6.1421895 46.1975401),,,1205,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,6.1421895,46.1975401
+node/1318416199,1318416199,node,,,,,bakery,,POINT (6.1185767 46.1903174),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6,6.1185767,46.1903174
+node/1318707359,1318707359,node,,,Petit Prince,,bakery,,POINT (6.1166788 46.1894956),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7,6.1166788,46.1894956
+node/1459565474,1459565474,node,,,Au fournil de Carouge,,bakery,limited,POINT (6.1409672 46.1873779),,,,off,,,,,,,,,,,,,,,,,,,,,,,,,,,8,6.1409672,46.1873779
+node/1634621723,1634621723,node,60,Rue Ancienne,Choco Shop,,bakery,no,POINT (6.1406892 46.1811894),,Carouge,1227,,,,,survey,CH,Alex-7 with OSMpad,2013-01-15,seuil d'entrée=12.5cm; hauteur sous table=72cm; WC aux même étages=non; dimension WC=140x83,,,,,,,,,,,,,,,,,,,9,6.1406892,46.1811894
+node/1637885081,1637885081,node,61,Route de Florissant,Wolfisberg,,bakery,yes,POINT (6.1634939 46.1928344),,Genève,1206,,,,,,CH,,,"hauteur sous table=73cm, WC au même étage=oui, dimension WC=120x182, espace libre à côté des WC=85cm",,,,,,,,,,,,,,,,,,,10,6.1634939,46.1928344
+node/1637937302,1637937302,node,56,Rue du Village,Paquier,Mo-Fr 06:00-18:30; Su 07:00-12:40,bakery,yes,POINT (6.0810794 46.2129438),,Vernier,,,,,,,,,,,,,,,,,,,,,,,,,,,,,11,6.0810794,46.2129438
+node/1805041720,1805041720,node,,,Oberson,"Mo-Fr 06:30-18:30; PH,Sa,Su off, PH,Sa,Su 07:00-17:00",bakery,limited,POINT (6.1308793 46.2115426),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,12,6.1308793,46.2115426
+node/1867148884,1867148884,node,217,Route d'Aire-la-Ville,Boulangerie-Pâtisserie-Salon de Thé Oberson,,bakery,yes,POINT (6.0329635 46.2131171),,,1242,,,,,,,,,,,,,,,,,,,,,,,,,,,,13,6.0329635,46.2131171
+node/1914679877,1914679877,node,,,Salon de thé de l’Athénée,"Mo-Fr 06:30-18:00; Sa,Su 07:00-17:00",bakery,,POINT (6.155179 46.1947576),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,14,6.155179,46.1947576
+node/1917476072,1917476072,node,,,,,bakery,,POINT (6.1379975 46.1966336),,Genève,,,,,,,,,,,,,,,,,,,,,,,,,,,,,15,6.1379975,46.1966336
+node/1936592167,1936592167,node,,,,,bakery,,POINT (6.1437713 46.1920585),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,16,6.1437713,46.1920585
+node/1936592168,1936592168,node,61,Rue de Carouge,,,bakery,,POINT (6.1440871 46.1923055),,Genève,1205,,,,,,,,,,,,,,,,,,,,,,,,,,,,17,6.1440871,46.1923055
+node/1983459568,1983459568,node,,,Boulangerie du Bouchet,,bakery,,POINT (6.117902 46.2168026),,,,,,,,,,,,,no,Ehinger,,,,,,,,,,,,,,,,,18,6.117902,46.2168026
+node/2050880326,2050880326,node,64,rue de Lausanne,Café Loichet,,bakery,,POINT (6.1471487 46.2153631),,,1202,,,,,,,,,,,,,,,,,,,,,,,,,,,,19,6.1471487,46.2153631
+node/2069991333,2069991333,node,,,Braga,,bakery,,POINT (6.156393 46.1984982),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,20,6.156393,46.1984982
+node/2069991511,2069991511,node,,,Mage,,bakery,yes,POINT (6.163495 46.1965153),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,21,6.163495,46.1965153
+node/2107473914,2107473914,node,,,,,bakery,,POINT (6.1850896 46.2034945),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,22,6.1850896,46.2034945
+node/2184636205,2184636205,node,,,La favorite,,bakery,,POINT (6.1292504 46.2130349),,Genève,,,,,,,,,,,,,,,,,,,,,,,,,,,,,23,6.1292504,46.2130349
+node/2188913107,2188913107,node,60,Boulevard Carl-Vogt,,,bakery,,POINT (6.1358986 46.1978427),,Genève,,,,,,survey,CH,surveyed by Alex-7,2013-03-06,,,,,,,,,,,,,,,,,,,,24,6.1358986,46.1978427
+node/2255488638,2255488638,node,,,Tea Room Les Gourmandises d'Emilie,,bakery,,POINT (6.1531552 46.1973049),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,25,6.1531552,46.1973049
+node/2266023895,2266023895,node,9,Rue de Saint-Jean,Boulangerie Ruckstuhl,,bakery,,POINT (6.1262333 46.2045734),,Genève,1203,open,,yes,no,,,,,,,,,Bäkerei Ruckstuhl,Boulangerie Ruckstuhl,yes,yes,yes,,,,,,,,,,,26,6.1262333,46.2045734
+node/2302910961,2302910961,node,,,Pain Paillasse,,bakery,yes,POINT (6.1396806 46.1956494),,Genève,,,,,,,,,,,,,,,,,,,,,,,,,,,,,27,6.1396806,46.1956494
+node/2311537504,2311537504,node,29,Route de Colovrex,Le Grand Sac' à Pain,"Tu-Fr 06:00-18:30, Sa 06:00-17:00, Su 06:30-13:30",bakery,,POINT (6.1255468 46.2355801),,Le Grand-Saconnex,1218,,+41 22 788 05 04,,,,,,,,,Jeanneret Benedict et Yaima,,,,,,,,,,,,,,,,,28,6.1255468,46.2355801
+node/2319855987,2319855987,node,,,,,bakery,,POINT (6.1067517 46.2255181),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,29,6.1067517,46.2255181
+node/2378449308,2378449308,node,5,Place de la Mairie,,,bakery,,POINT (6.1488691 46.1602511),,Troinex,,,,,,,,,,,,,,,,,,,,,,,,,,,,,30,6.1488691,46.1602511
+node/2627565102,2627565102,node,,,,,bakery,,POINT (6.1221277 46.1754049),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,31,6.1221277,46.1754049
+node/2724000353,2724000353,node,,,,,bakery,,POINT (6.1614741 46.2016305),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,32,6.1614741,46.2016305
+node/2925924201,2925924201,node,285,Route de Saint-Julien,Pause Gourmande,,bakery,,POINT (6.094046 46.154753),,Perly,1258,,+41 22 771 21 81,,,,,,,,,,,,,,,,cafe,,,,,,,,,,33,6.094046,46.154753
+node/2943962263,2943962263,node,87,Rue de Graman,Boulangerie Patisserie,,bakery,,POINT (6.2323721 46.2113481),,Puplinge,1241,,,,,,,,,,,,,,,,,,,,,,,,,,,,34,6.2323721,46.2113481
+node/2946346774,2946346774,node,,,,,bakery,,POINT (6.1943359 46.1974696),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,35,6.1943359,46.1974696
+node/2946386690,2946386690,node,,,Boulangerie Patisserie,,bakery,,POINT (6.190999 46.1961567),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,36,6.190999,46.1961567
+node/3004096572,3004096572,node,318,Route de Jussy,Boulangerie Sésame Noir,Tu-Fr 6:30-17:00; Sa-Su 7:00-17:00,bakery,,POINT (6.265727 46.2349631),,Jussy,1254,,,,,,,Boulangerie - Patisserie - Tea-Room,,,,,,,Sesame Noir,,,,,,,,,,,,,,37,6.265727,46.2349631
+node/3070162697,3070162697,node,,,,,bakery,,POINT (6.2444047 46.301905),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,38,6.2444047,46.301905
+node/3384497888,3384497888,node,106,Avenue du Bois-de-la-Chapelle,Boulangerie Philippe Taillé,Mo-Fr 06:30-18:30; Sa 06:30-17:30; Su 07:00-17:30,bakery,,POINT (6.1004429 46.1849855),,Onex,1213,,,,,,,,,,,Philippe Taillé,,,,,,,,,,,,,,,,,39,6.1004429,46.1849855
+node/3727149826,3727149826,node,299,Route de Meyrin,Oberson,Mo-Fr 06:00-18:30; Sa-Su 06:00-13:30,bakery,,POINT (6.0717915 46.2286799),,Meyrin,1217,,+41 22 782 10 45,,,,,,,,,Boulangerie Oberson SA,www.boulangerie-oberson.ch,,,,,,,,0,,,,,,,,40,6.0717915,46.2286799
+node/3735051671,3735051671,node,,,BrezelKönig,,bakery,limited,POINT (6.1418869 46.2101929),,,,,,,,,,,,,,,,,,,,,,,0,,,,,,,,41,6.1418869,46.2101929
+node/3735051675,3735051675,node,,,Pougnier,Mo-Su 05:30-22:00,bakery,limited,POINT (6.142093 46.2100975),,,,,,,,,,,,,,,,,,,,,,,0,,,,,,,,42,6.142093,46.2100975
+node/3735083507,3735083507,node,,,Aimé Pouly,,bakery,,POINT (6.1424605 46.2098329),,,,,,,,,,,,,,,,,,,,,,yes,-1,,,,,,,,43,6.1424605,46.2098329
+node/3735097195,3735097195,node,,,Pougnier,Mo-Su 06:00-21:30,bakery,limited,POINT (6.1427862 46.2107272),,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,44,6.1427862,46.2107272
+node/3750859334,3750859334,node,9,Rond-Point de Plainpalais,Aux Merveilleux de Fred,"Mo-Sa 07:30-18:30, Th 07:30-19:30, Sa 08:00-18:30, Su off",bakery,limited,POINT (6.1433667 46.197525),,Genève,1205,,+41 22 436 80 60,,,,,,,,,,http://www.auxmerveilleux.com/,,,,,,,,,contact@auxmerveilleux.ch,,,,,,,45,6.1433667,46.197525
+node/3769728655,3769728655,node,,,,Opens Mon-Sat at 06.00,bakery,,POINT (6.1277246 46.2227806),,Genève,1209,,,,,,,,,,,,,,,,,,,,,,,,,,,,46,6.1277246,46.2227806
+node/4025858152,4025858152,node,,,,,bakery,,POINT (6.1331102 46.2193859),,Genève,,,,,,,,,,,,,,,,,,,,,,,,,,,,,47,6.1331102,46.2193859
+node/4069953373,4069953373,node,,,Rucksthul,,bakery,,POINT (6.1412662 46.2196187),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,48,6.1412662,46.2196187
+node/4222276770,4222276770,node,,,Très Alp'ain,,bakery,,POINT (6.136833 46.2101881),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,49,6.136833,46.2101881
+node/4224270316,4224270316,node,,,,,bakery,,POINT (6.1232758 46.2240799),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,50,6.1232758,46.2240799
+node/4230238931,4230238931,node,2,Chemin Docteur Adolphe-Pasteur,Boulangerie Eric Emery,"Mo-Fr 06:30-18:30, Su 06:30-13:00",bakery,,POINT (6.1294169 46.2208921),,Genève,1209,,,,,,,,,,,,https://www.eric-emery.ch,,,,,,,,,,,,,,,,51,6.1294169,46.2208921
+node/4297395201,4297395201,node,2,Avenue des Communes-Réunies,,,bakery,,POINT (6.1201947 46.1828564),,,1212,,,,,,,,,,,,,,,,,,,,,,,,,,,,52,6.1201947,46.1828564
+node/4337412742,4337412742,node,4,Rue de Lyon,Isid Oro,"Mo-Fr 11:00-14:30, 09:00-18:00",bakery,,POINT (6.1385779 46.2092872),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,53,6.1385779,46.2092872
+node/4351533780,4351533780,node,5,Rue des Grottes,boulangerie des grottes,"Mo-We, Fr 06:00-19:00; Th 06:00-20:00",bakery,,POINT (6.1402329 46.2098189),,Genève,1201,open,+41 22 734 05 25,,,,,,,,,,,,,yes,,,,,,,info@lbdg.ch,yes,yes,yes,,,54,6.1402329,46.2098189
+node/4358577791,4358577791,node,,,BISA,,bakery,,POINT (6.1301365 46.1853463),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,55,6.1301365,46.1853463
+node/4358768892,4358768892,node,4,Rue Baylon,Roco Guerrazzi,,bakery,,POINT (6.1353949 46.1814096),,,1227,,+41223426060,,,,,,,,,,http://rocco-guerrazzi.ch,,,,,,,,,,,,,,,,56,6.1353949,46.1814096
+node/4394631293,4394631293,node,,,Boulangerie Rostkalz Sarl,,bakery,,POINT (6.1211161 46.213686),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,57,6.1211161,46.213686
+node/4397585189,4397585189,node,4,Rue Caroline,Boulangerie Gillard,,bakery,,POINT (6.1384798 46.1921771),,,1227,,+41223426074,,,,,,,,,,,,,,,,,,,,,,,,,,58,6.1384798,46.1921771
+node/4397710090,4397710090,node,154,Route de Thonon,BISA - Boulangerie Ondustrielle SA,,bakery,,POINT (6.2159065 46.2473753),,Vésenaz,1222,,+41228559700,,,,,,,,,,,,,,,,,,,,,,,,,,59,6.2159065,46.2473753
+node/4402669092,4402669092,node,11,Chemin du 23-Août,Boulangerie Leonhard Bretzel Sarl,"Mo-Fr 06:30-17:00; Sa,Su 07:30-14:30",bakery,,POINT (6.1347117 46.2018761),,,1205,,,,,,,,,,,,,,,,,,,,,,,,,,,,60,6.1347117,46.2018761
+node/4407893106,4407893106,node,,,Tea-room Le Jardin,Tu-Su 08:00-20:00,bakery,,POINT (6.1142489 46.2050517),,,1203,,,,,,,,,,,,,,Tea-room Le Jardin,,,,,,,,,,,,,,61,6.1142489,46.2050517
+node/4435910090,4435910090,node,49,Route des Jeunes,Europain - Lima Castro,,bakery,,POINT (6.1300156 46.1815409),,,1227,,+41763282269,,,,,,,,,,,,,,,,,,,,,,,,,,62,6.1300156,46.1815409
+node/4534475292,4534475292,node,,,Tea Room Ph. Taillé,,bakery,,POINT (6.1401161 46.1806727),,,1227,,,,,,,,,,,,,,Tea Room Ph. Taillé,,,,,,,,,,,,,,63,6.1401161,46.1806727
+node/4553758114,4553758114,node,,,Le Panetier,"Mo-Fr 06:00-19:00, Sa 06:30-18:30, Su 07:00-18:30",bakery,,POINT (6.1481113 46.2372728),,Geneva,,,,,,,,,,,,,,,,,,,,,,,,,,,,,64,6.1481113,46.2372728
+node/4663104197,4663104197,node,3,Rue de la Confédération (les Rues Basses),Chocolaterie du Rhône,,bakery,,POINT (6.143964 46.2039368),,,,,,,,,,,,,,,,,Du Rhone Chocolatier,,,,,,,,,,,,,,65,6.143964,46.2039368
+node/5163691225,5163691225,node,,,Berger de Faletans - chocolaterie pâtisserie,"Mo 7:30-15:00,Tu-Fr 7:30-18:00, Sa 7:30-17:00",bakery,,POINT (6.1420699 46.1957807),,,,,+41223291202,,,,,,,,,,http://www.berger-defaletans.ch,,,,,,,,,,,,,,,,66,6.1420699,46.1957807
+node/5829106535,5829106535,node,,,La Couronne,Mo-Su 07:00-18:00,bakery,,POINT (6.2239965 46.2629948),,,,,+41227518214,,,,,,,,,,,,,,,,,,,,,,,,2021-05-29,,67,6.2239965,46.2629948
+node/6048362707,6048362707,node,,,Ruckstuhl,Mo-Th 06:00-17:00; Fr 06:00-16:00,bakery,yes,POINT (6.0626801 46.2224574),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,68,6.0626801,46.2224574
+node/6198307985,6198307985,node,65,Rue des Bains,Boulangerie des Bains,Mo-Fr 04:30-18:30; Sa 05:00-17:30,bakery,,POINT (6.1375548 46.2012357),,,1205,,+41 22 328 41 70,,,,,,,,,,https://www.boulangeriedesbains.ch/,,,,,,,,,,,,,,,,69,6.1375548,46.2012357
+node/6443395187,6443395187,node,,,Boulangerie Patisserie,,bakery,,POINT (6.1377047 46.191841),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,70,6.1377047,46.191841
+node/6799821852,6799821852,node,,,Pouly,,bakery,,POINT (6.1450347 46.2082074),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,71,6.1450347,46.2082074
+node/6814419518,6814419518,node,8A,Chemin Jean-Baptiste Vandelle,Guillaume Bichet,"Mo-Fri 07:00-18:00, Sa-Sun 08:00-17:00",bakery,,POINT (6.1656062 46.2807697),,Versoix,1290,open,+41 22 755 10 05,,,,,,,,,Guillaume Bichet,https://www.guillaume-bichet.ch/,,,yes,,yes,,,,,,,,,,,72,6.1656062,46.2807697
+node/6940436906,6940436906,node,,,,,bakery,,POINT (6.1412599 46.1849131),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,73,6.1412599,46.1849131
+node/6956877033,6956877033,node,4-6,Esplanade de Pont-Rouge,Pouly,Mo-Fr 06:00-17:00,bakery,,POINT (6.1261208 46.1872526),,Petit-Lancy,1212,,+41 22 346 43 66,,,,,,,,,,,,,yes,yes,yes,,,,,,,,,,yes,74,6.1261208,46.1872526
+node/7077680148,7077680148,node,28,Rue Jean-Violette,Chez Boubou,Mo-Sa 06:30-19:00,bakery,,POINT (6.1462524 46.1937208),,Genève,1205,,,,,,,,,,,,,,,,,,,,,,,,,,2021-06-21,,75,6.1462524,46.1937208
+node/7077741561,7077741561,node,4,avenue du Mail,Pouly,Mo-Su 06:00-14:00,bakery,,POINT (6.1395859 46.2000614),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,76,6.1395859,46.2000614
+node/7077965451,7077965451,node,91,Rue de Carouge,Le Saint Honoré,Mo-Su 06:00-19:00,bakery,,POINT (6.1431963 46.188818),,Genève,1205,,+41 22 329 06 65,,,,,,,,,,,,,,,,,,,,,,,,,,77,6.1431963,46.188818
+node/7090715293,7090715293,node,,,Cuppin’s,,bakery,,POINT (6.1574157 46.2008996),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,78,6.1574157,46.2008996
+node/7090736787,7090736787,node,,,,,bakery,,POINT (6.1442031 46.2038657),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,79,6.1442031,46.2038657
+node/7090741286,7090741286,node,,,Pouly,,bakery,,POINT (6.1493982 46.1997628),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,80,6.1493982,46.1997628
+node/8190436365,8190436365,node,,,,,bakery,,POINT (6.1681562 46.2772247),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,81,6.1681562,46.2772247
+node/8195368717,8195368717,node,66,Rue du Grand-Pré,O Bom Gosto The Aquarium Lounge,Su-Fr 06:00-19:00,bakery,,POINT (6.1323594 46.2160175),,,1202,,,,,,,,,,,,http://obomgosto.ch,,,,,,,,,,,,,,,,82,6.1323594,46.2160175
+node/8827496117,8827496117,node,,,Pouly,,bakery,,POINT (6.1526375 46.191211),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,83,6.1526375,46.191211
+node/8987593638,8987593638,node,43,Rue de Carouge,Pouly Théâtre,Mo-Su 06:00-19:00,bakery,yes,POINT (6.1437861 46.1941129),,Genève,1205,,+41 22 320 68 84,,,,CH,,,,,,https://www.pouly.ch/magasin/theatre,,,,,,,,,,,,,,,,84,6.1437861,46.1941129
