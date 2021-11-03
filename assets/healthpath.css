@@ -226,7 +226,7 @@ html {
 }
 
 body {
-    font-size: 1.5rem; /* currently ems cause chrome bug misinterpreting rems on body element */
+    font-size: 1.8rem; /* currently ems cause chrome bug misinterpreting rems on body element */
     line-height: 1.6;
     font-weight: 400;
     font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -317,23 +317,21 @@ p {
 }
 
 #description {
-    font-size: 1.5rem;
+    font-size: 2rem;
     border-left: #2cfec1 solid 1rem;
     padding-left: 1rem;
-    max-width: 100rem;
     margin: 2rem 0 3rem 0;
 }
 
 #logo {
-    height: 15rem;
-    width: 15rem;
-
-    margin-bottom: 3rem;
+    height: 18rem;
+    width: 18rem;
+    margin-bottom: 1rem;
 }
 
 #slider-text, #chart-selector {
     margin-bottom: 2rem !important;
-    font-size: 2.6rem;
+    font-size: 10rem;
 }
 
 
@@ -645,9 +643,9 @@ hr {
 
 #slider-container {
     background-color: #252e3f;
-    margin-bottom: 3rem;
-    padding: 2rem 6rem 4rem 4rem;
-    height: 16rem;}
+    margin-bottom: 2rem;
+    padding: 3rem 3rem 3rem 3rem;
+    height: 6rem;}
 
 .rc-slider-dot-active, .rc-slider-handle {
     border-color: #2cfec1 !important;
@@ -721,7 +719,7 @@ hr {
 
 #map-container {
     background-color: #252e3f;
-    padding: 5rem;
+    padding: 0rem;
     margin: 0;
 }
 
@@ -756,9 +754,9 @@ hr {
     }
 
     #map-container {
-        flex: 6 60%;
+        flex: 6 80%;
         margin: 0;
-        min-height: 80rem;
+        min-height: 120rem;
         display: flex;
         flex-direction: column;
         align-items: stretch;
@@ -852,6 +850,7 @@ hr {
         margin-bottom: 5rem;
     }
 }
+
 
 @media (min-width: 1251px) {
     /*For desktop*/

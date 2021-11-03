@@ -7,7 +7,6 @@ from pathlib import Path
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-import toolbox
 from shapely.geometry import Point
 # import dash_bootstrap_components as dbc
 # import plotly.express as px
@@ -61,8 +60,80 @@ def load_data(path, DATE_COLUMN=None):
         data[DATE_COLUMN] = pd.to_datetime(data[DATE_COLUMN])
     return data
 
+
 def intersection(lst1, lst2):
     return list(set(lst1) & set(lst2))
+
+
+def get_pois(selected_poi):
+    """ Returns a GeoDataFrame containing all the POI categories in select_poi.
+
+        This function takes a list of POIs as input and returns a GeoDataFrame containing
+        all inputted types. If a POI input is not already existing in the POIs folder, the
+        function queries OSM and creates the file in the expected folder."""
+    poi_filenames = [poi + '.csv' for poi in selected_poi]
+    poi_paths = [data_folder / 'POIs' / poi_filename for poi_filename in poi_filenames]
+    place = 'Canton de Genève, Switzerland'
+    print('get_pois is running')
+    for poi, path, filename in zip(selected_poi, poi_paths, poi_filenames):
+        if os.path.exists(path):
+            print(path, 'File existed')
+        else:
+            print(path, 'Querying OSM for the missing tag')
+            if 'bakery' in filename:
+                type_poi = 'shop'
+            elif 'tree' in filename:
+                type_poi = 'natural'
+            else:
+                type_poi = 'amenity'
+            tags = {type_poi: poi}
+            print(tags)
+            gdf = ox.geometries_from_place(place, tags)
+            gdf.index = gdf.index.map(int)
+            gdf['id'] = gdf.index
+            if 'element_type' in gdf.columns:
+                gdf = gdf[gdf.element_type == 'node']
+            gdf['lon'] = gdf.geometry.x
+            gdf['lat'] = gdf.geometry.y
+            gdf.to_csv(path, index=False)
+    df_poi = pd.concat((pd.read_csv(f) for f in poi_paths)).reset_index(drop=True)
+    df_poi['category'] = 'Unhealthy'
+    if 'natural' in df_poi.columns:
+        df_poi.loc[df_poi.natural == 'tree', 'category'] = 'Healthy'
+        df_poi.loc[df_poi.natural == 'tree', 'poi_category'] = df_poi.natural
+    else:
+        df_poi['natural'] = np.NaN
+    if 'shop' in df_poi.columns:
+        df_poi.loc[(df_poi.shop.isnull() == False), 'poi_category'] = df_poi.shop
+    else:
+        df_poi['shop'] = np.NaN
+    if 'amenity' in df_poi.columns:
+        df_poi.loc[(df_poi.amenity.isnull() == False), 'poi_category'] = df_poi.amenity
+    else:
+        df_poi['amenity'] = np.NaN
+
+    geometry = [Point(xy) for xy in zip(df_poi.lon, df_poi.lat)]
+    crs = 'epsg:4326'
+    df_poi = gpd.GeoDataFrame(df_poi, crs=crs, geometry=geometry)
+    df_poi = df_poi.to_crs('epsg:2056')
+    return df_poi
+
+
+def calculate_impedance(gdf_edges, good_pois, bad_pois, selected_poi, impedance_distance):
+    print('calculate_impedance is running')
+    unhealthy_cols = intersection(selected_poi, bad_pois)
+    healthy_cols = intersection(selected_poi, good_pois)
+    if all(elem in good_pois for elem in selected_poi):
+        impedance = gdf_edges['length'].astype(float) - gdf_edges[healthy_cols].astype(int).sum(axis=1) * 10
+    elif all(elem in bad_pois for elem in selected_poi):
+        impedance = gdf_edges['length'].astype(float) + gdf_edges[unhealthy_cols].astype(int).sum(axis=1) \
+                    * impedance_distance
+    else:
+        impedance = gdf_edges['length'].astype(float) - gdf_edges[healthy_cols].astype(int).sum(axis=1) * 10 \
+                    + gdf_edges[unhealthy_cols].astype(int).sum(axis=1) * impedance_distance
+    impedance.loc[impedance < 0] = 0
+    return impedance
+
 
 def getRouteEdges(route):
     """Input : OSMNX route
@@ -98,7 +169,7 @@ def make_route(origin, destination, selected_poi_impedance):
     return origin_xy, dest_xy, route_health, route_short, gdf_route_edges_short, gdf_route_edges_health
 
 
-def lineToPoints(gdf):
+def linetopoints(gdf):
     lats = []
     lons = []
     names = []
@@ -195,7 +266,7 @@ app.layout = html.Div(
             id="header",
             children=[
                 html.Img(id="logo", src=app.get_asset_url("logo_transparent.png"), width='150px'),
-                html.H2(children="HealthPath - Reduce the caloric pressure around you"),
+                html.H1(children="HealthPath - Reduce the caloric pressure around you"),
                 html.P(
                     id="description",
                     children="HealthPath enables you to find itineraries going through the best natural \
@@ -203,7 +274,6 @@ app.layout = html.Div(
                 ),
             ],
         ),
-        html.P(id='placeholder'),
         html.Div(
             id='app-container',
             children=[
@@ -212,29 +282,39 @@ app.layout = html.Div(
                     children=[
                         html.Div(
                             id='address-container',
+                            style = {'zIndex':2},
                             children=[
                                 html.H4('What is your itinerary?'),
-                                html.Label(["Starting point", dcc.Dropdown(id="dynamic-start",
-                                                                           style=
-                                                                           {
-                                                                               'font-size': '16px',
-                                                                               'color': '#ffffff',
-                                                                               'background-color': '#ffffff',
-                                                                           })]),
+                                html.Label(["Origin", dcc.Dropdown(id="dynamic-start",
+                                                                   style=
+                                                                   {
+                                                                       'fontSize': '16px',
+                                                                       'color': '#ffffff',
+                                                                       'zIndex': 3,
+                                                                       'backgroundColor': '#ffffff',
+
+                                                                   },
+                                                                   placeholder="Search an address"
+                                                                   )]),
+
                                 html.Label(["Destination", dcc.Dropdown(id="dynamic-end",
                                                                         style=
                                                                         {
-                                                                            'font-size': '16px',
+                                                                            'fontSize': '16px',
                                                                             'color': '#ffffff',
-                                                                            'background-color': '#ffffff',
-                                                                        })]),
+                                                                            'zIndex': 3,
+                                                                            'backgroundColor': '#ffffff',
+                                                                        },
+                                                                   placeholder="Search an address")]),
                             ],
                         ),
 
                         html.Div(
                             id="checklist-avoid",
+                            style={'zIndex': 3},
+
                             children=[
-                                html.H4('What would you like to avoid on your way?'),
+                                html.H4('What would you like to avoid along your itinerary?'),
                                 dcc.Checklist(id='poi-selection-unhealthy',
                                               options=[
                                                   {'label': 'Fast-foods', 'value': 'fast_food'},
@@ -249,6 +329,7 @@ app.layout = html.Div(
                         ),
                         html.Div(
                             id="slider-container",
+                            style = {'zIndex':4},
                             children=[
                                 html.H4(
                                     id="slider-text"
@@ -267,6 +348,8 @@ app.layout = html.Div(
                         ),
                         html.Div(
                             id="checklist-goto",
+                            style={'zIndex': 5},
+
                             children=[
                                 html.H4('What would you like to see on your way?'),
                                 dcc.Checklist(id='poi-selection-healthy',
@@ -284,6 +367,7 @@ app.layout = html.Div(
 
                 html.Div(
                     id='map-container',
+                    style = {'zIndex':1},
                     children=[dcc.Loading(
                         id="loading-1",
                         type="default",
@@ -356,83 +440,6 @@ def return_poi():
 #     G = ox.graph_from_gdfs(gdf_nodes, gdf_edges)
 #     return gdf_edges
 
-@app.callback(Output("placeholder", "children"),
-    [Input("poi-selection-healthy", "value"),Input("poi-selection-unhealthy", "value")])
-def get_pois(selected_poi_unhealthy, select_poi_healthy):
-    """ Returns a GeoDataFrame containing all the POI categories in select_poi.
-
-        This function takes a list of POIs as input and returns a GeoDataFrame containing
-        all inputted types. If a POI input is not already existing in the POIs folder, the
-        function queries OSM and creates the file in the expected folder."""
-    selected_poi = selected_poi_unhealthy + select_poi_healthy
-    selected_poi = sorted(selected_poi)
-    poi_filenames = [poi + '.csv' for poi in selected_poi]
-    poi_paths = [data_folder / 'POIs' / poi_filename for poi_filename in poi_filenames]
-    place = 'Canton de Genève, Switzerland'
-
-    for poi, path, filename in zip(selected_poi, poi_paths, poi_filenames):
-        if os.path.exists(path):
-            print(path, 'File existed')
-        else:
-            print(path, 'Querying OSM for the missing tag')
-            if 'bakery' in filename:
-                type_poi = 'shop'
-            elif 'tree' in filename:
-                type_poi = 'natural'
-            else:
-                type_poi = 'amenity'
-            tags = {type_poi: poi}
-            print(tags)
-            gdf = ox.geometries_from_place(place, tags)
-            gdf.index = gdf.index.map(int)
-            gdf['id'] = gdf.index
-            if 'element_type' in gdf.columns:
-                gdf = gdf[gdf.element_type == 'node']
-            gdf['lon'] = gdf.geometry.x
-            gdf['lat'] = gdf.geometry.y
-            gdf.to_csv(path, index=False)
-    df_poi = pd.concat((pd.read_csv(f) for f in poi_paths)).reset_index(drop=True)
-    df_poi['category'] = 'Unhealthy'
-    if 'natural' in df_poi.columns:
-        df_poi.loc[df_poi.natural == 'tree', 'category'] = 'Healthy'
-        df_poi.loc[df_poi.natural == 'tree', 'poi_category'] = df_poi.natural
-    else:
-        df_poi['natural'] = np.NaN
-    if 'shop' in df_poi.columns:
-        df_poi.loc[(df_poi.shop.isnull() == False), 'poi_category'] = df_poi.shop
-    else:
-        df_poi['shop'] = np.NaN
-    if 'amenity' in df_poi.columns:
-        df_poi.loc[(df_poi.amenity.isnull() == False), 'poi_category'] = df_poi.amenity
-    else:
-        df_poi['amenity'] = np.NaN
-
-    geometry = [Point(xy) for xy in zip(df_poi.lon, df_poi.lat)]
-    crs = 'epsg:4326'
-    df_poi = gpd.GeoDataFrame(df_poi, crs=crs, geometry=geometry)
-    df_poi = df_poi.to_crs('epsg:2056')
-    return df_poi
-
-
-@app.callback(Output("", "children"),
-    [Input("poi-selection-healthy", "value"),Input("poi-selection-unhealthy", "value")
-        , Input("impedance-slider", "value")])
-def calculate_impedance(selected_poi_unhealthy, select_poi_healthy, impedance_distance):
-    selected_poi = selected_poi_unhealthy + select_poi_healthy
-    selected_poi = sorted(selected_poi)
-    unhealthy_cols = intersection(selected_poi, bad_pois)
-    healthy_cols = intersection(selected_poi, good_pois)
-    if all(elem in good_pois for elem in selected_poi):
-        impedance = gdf_edges['length'].astype(float) - gdf_edges[healthy_cols].astype(int).sum(axis=1) * 10
-    elif all(elem in bad_pois for elem in selected_poi):
-        impedance = gdf_edges['length'].astype(float) + gdf_edges[unhealthy_cols].astype(int).sum(axis=1) \
-                    * impedance_distance
-    else:
-        impedance = gdf_edges['length'].astype(float) - gdf_edges[healthy_cols].astype(int).sum(axis=1) * 10 \
-                    + gdf_edges[unhealthy_cols].astype(int).sum(axis=1) * impedance_distance
-    impedance.loc[impedance < 0] = 0
-    return impedance
-
 
 @app.callback(
     [Output("output_address", "children"), Output("map-route", "figure")],
@@ -441,7 +448,7 @@ def calculate_impedance(selected_poi_unhealthy, select_poi_healthy, impedance_di
     [State("map-route", "figure")])
 def update_figure(start, end, selected_poi_unhealthy, select_poi_healthy, impedance_distance, figure):
     poi_dict = {'restaurant': 'restaurants', 'fast_food': 'fast-foods',
-                'bar': 'bars', 'tree':'trees', 'bakery': 'bakeries'}
+                'bar': 'bars', 'tree': 'trees', 'bakery': 'bakeries'}
     selected_poi = selected_poi_unhealthy + select_poi_healthy
     selected_poi = sorted(selected_poi)
     bad_pois = ['fast_food', 'restaurant', 'cafe', 'bar', 'bakery']
@@ -450,7 +457,7 @@ def update_figure(start, end, selected_poi_unhealthy, select_poi_healthy, impeda
 
     # Calculate impedance for the selected options
     gdf_edges[poi_impedance] = calculate_impedance(gdf_edges, good_pois, bad_pois, selected_poi,
-                                                            impedance_distance)
+                                                   impedance_distance)
     edge_attribute = gdf_edges.set_index(['u', 'v', 'key'])[poi_impedance].to_dict()
     nx.set_edge_attributes(G, edge_attribute, poi_impedance)
     if start != '' and end != '':
@@ -460,18 +467,26 @@ def update_figure(start, end, selected_poi_unhealthy, select_poi_healthy, impeda
         startend = pd.concat([origin_address, dest_address])
         origin_xy, dest_xy, route_health, route_short, gdf_route_edges_short, gdf_route_edges_health = make_route(
             origin_address, dest_address, poi_impedance)
+        measures, messages = [], []
         for poi in selected_poi:
             route_health_length, route_health_npoi, route_short_length, route_short_npoi, detour, diff_poi \
                 = calc_path_measures(G, route_health, route_short, poi)
-            message = "HealthPath makes you avoid passing by {} {} and walk just {} extra meters ".format(diff_poi,
-                                                                                                          poi_dict[poi],
-                                                                                                          detour)
+            measure = [route_health_length, route_health_npoi, route_short_length, route_short_npoi, detour, diff_poi]
+            if poi == 'tree':
+                message = "HealthPath makes you walk by {} extra {} and walk just {} extra meters ".format(abs(diff_poi),
+                    poi_dict[poi], detour)
+            else:
+                message = "HealthPath makes you avoid passing by {} {} and walk just {} extra meters ".format(diff_poi,
+                    poi_dict[poi], detour)
+            messages.append(message)
+            measures.append(measure)
+        message = '\n'.join(i for i in messages)
         x, y = gdf_route_edges_health.unary_union.centroid.xy
 
         gdf_poi = get_pois(selected_poi)
 
-        names_health, lons_health, lats_health = lineToPoints(gdf_route_edges_health)
-        names_short, lons_short, lats_short = lineToPoints(gdf_route_edges_short)
+        names_health, lons_health, lats_health = linetopoints(gdf_route_edges_health)
+        names_short, lons_short, lats_short = linetopoints(gdf_route_edges_short)
         # lats_cleaned,lons_cleaned = [x for x in list(lats_health) if str(x) != 'None'],[x for x in list(lons_health) if str(x) != 'None']
         fig = go.Figure()
         fig.add_trace(go.Scattermapbox(
@@ -479,7 +494,7 @@ def update_figure(start, end, selected_poi_unhealthy, select_poi_healthy, impeda
             mode="markers+text",
             lon=startend.lon,
             lat=startend.lat,
-            marker=go.scattermapbox.Marker(size=15, color='grey'),
+            marker=go.scattermapbox.Marker(size=15, color=startend['color']),
             text=startend.type,
             showlegend=False,
             textposition="bottom right",
@@ -507,7 +522,7 @@ def update_figure(start, end, selected_poi_unhealthy, select_poi_healthy, impeda
         ))
 
         fig.add_trace(go.Scattermapbox(
-            name= 'Unhealthy features',
+            name='Unhealthy features',
             mode='markers',
             marker_color='crimson',
             lat=gdf_poi[gdf_poi.category == 'Unhealthy'].lat,
@@ -516,7 +531,7 @@ def update_figure(start, end, selected_poi_unhealthy, select_poi_healthy, impeda
         ))
 
         fig.add_trace(go.Scattermapbox(
-            name= 'Healthy features',
+            name='Healthy features',
             mode='markers',
             marker=go.scattermapbox.Marker(
                 size=3,
@@ -536,7 +551,10 @@ def update_figure(start, end, selected_poi_unhealthy, select_poi_healthy, impeda
                 zoom=12.5),
             paper_bgcolor='#191e26',
             autosize=True,
-            legend=dict(
+            legend=dict(yanchor="top",
+                        y=0.99,
+                        xanchor="left",
+                        x=0.01,
                 title_font_family="Open Sans",
                 font=dict(
                     family="Helvetica",
