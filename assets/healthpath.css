@@ -331,7 +331,7 @@ p {
 
 #slider-text, #chart-selector {
     margin-bottom: 2rem !important;
-    font-size: 10rem;
+    font-size: 4rem;
 }
 
 
@@ -380,9 +380,9 @@ input[type="button"] {
     display: inline-block;
     height: 38px;
     padding: 0 30px;
-    color: #555;
+    color: #fff;
     text-align: center;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 38px;
     letter-spacing: .1rem;
@@ -406,7 +406,7 @@ button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
-    color: #333;
+    color: #555;
     border-color: #888;
     outline: 0;
 }
@@ -643,9 +643,9 @@ hr {
 
 #slider-container {
     background-color: #252e3f;
-    margin-bottom: 2rem;
-    padding: 3rem 3rem 3rem 3rem;
-    height: 6rem;}
+    margin-bottom: 6rem;
+    padding: 2rem 6rem 4rem 4rem;
+    height: 14rem;}
 
 .rc-slider-dot-active, .rc-slider-handle {
     border-color: #2cfec1 !important;

@@ -8,7 +8,9 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from shapely.geometry import Point
-# import dash_bootstrap_components as dbc
+from dash.exceptions import PreventUpdate
+
+import dash_bootstrap_components as dbc
 # import plotly.express as px
 from dash.dependencies import Input, Output, State
 import shapely.geometry
@@ -221,17 +223,14 @@ G = read_network()
 gdf_nodes, gdf_edges = ox.graph_to_gdfs(G)
 # gdf_nodes_proj,gdf_edges_proj = ox.graph_to_gdfs(G_proj)
 
-regbl_df = load_data(data_folder / 'regbl_ge.csv')
-addresses = sorted(regbl_df.address.unique())
+regbl_df = pd.read_feather(data_folder / 'regbl_ge_2021.feather')
+addresses = regbl_df.address.unique()
 
-options = []
-for address in addresses:
-    option = {'label': address, 'value': address}
-    options.append(option)
+# Define list of options for address dropdown menus
+options = [{'label': address, 'value': address} for address in addresses]
 
 # Define variables
-
-impedances = [50, 100, 200]
+impedances = [50, 100, 150]
 DEFAULT_COLORSCALE = [
     "#f2fffb",
     "#bbffeb",
@@ -282,7 +281,7 @@ app.layout = html.Div(
                     children=[
                         html.Div(
                             id='address-container',
-                            style = {'zIndex':2},
+                            # style = {'zIndex':2},
                             children=[
                                 html.H4('What is your itinerary?'),
                                 html.Label(["Origin", dcc.Dropdown(id="dynamic-start",
@@ -290,7 +289,7 @@ app.layout = html.Div(
                                                                    {
                                                                        'fontSize': '16px',
                                                                        'color': '#ffffff',
-                                                                       'zIndex': 3,
+                                                                       # 'zIndex': 3,
                                                                        'backgroundColor': '#ffffff',
 
                                                                    },
@@ -302,7 +301,7 @@ app.layout = html.Div(
                                                                         {
                                                                             'fontSize': '16px',
                                                                             'color': '#ffffff',
-                                                                            'zIndex': 3,
+                                                                            # 'zIndex': 3,
                                                                             'backgroundColor': '#ffffff',
                                                                         },
                                                                    placeholder="Search an address")]),
@@ -311,7 +310,7 @@ app.layout = html.Div(
 
                         html.Div(
                             id="checklist-avoid",
-                            style={'zIndex': 3},
+                            # style={'zIndex': 3},
 
                             children=[
                                 html.H4('What would you like to avoid along your itinerary?'),
@@ -329,9 +328,9 @@ app.layout = html.Div(
                         ),
                         html.Div(
                             id="slider-container",
-                            style = {'zIndex':4},
+                            # style = {'zIndex':4},
                             children=[
-                                html.H4(
+                                html.H4("How much do you want to avoid these?",
                                     id="slider-text"
                                 ),
                                 dcc.Slider(
@@ -348,7 +347,7 @@ app.layout = html.Div(
                         ),
                         html.Div(
                             id="checklist-goto",
-                            style={'zIndex': 5},
+                            # style={'zIndex': 5},
 
                             children=[
                                 html.H4('What would you like to see on your way?'),
@@ -360,14 +359,17 @@ app.layout = html.Div(
                                               ),
                             ],
                         ),
-                        html.Div([html.H4(id='output_address')]
-                                 ),
+                        html.Button(id = 'itinerary-start', n_clicks = 0, children = 'Create itinerary'),
+                        # dbc.Spinner(),
+
+                        html.Div([html.H3(id='output_address')]
+                        )
                     ],
                 ),
 
                 html.Div(
                     id='map-container',
-                    style = {'zIndex':1},
+                    # style = {'zIndex':1},
                     children=[dcc.Loading(
                         id="loading-1",
                         type="default",
@@ -423,11 +425,11 @@ def update_options(search_value):
     return [o for o in options if search_value.lower() in o["label"]]
 
 
-@app.callback(
-    Output("slider-text", "children"),
-    [Input("poi-selection-unhealthy", "value")])
-def return_poi():
-    return "How much do you want to avoid these?"
+# @app.callback(
+#     Output("slider-text", "children"),
+#     [Input("poi-selection-unhealthy", "value")])
+# def return_poi(string):
+#     return "How much do you want to avoid these?"
 
 
 # @app.callback(
@@ -441,26 +443,36 @@ def return_poi():
 #     return gdf_edges
 
 
+# @app.callback(
+#     [Output("output_address", "children"), Output("map-route", "figure")],
+#     [Input("dynamic-start", "value"), Input("dynamic-end", 'value'), Input('poi-selection-unhealthy', 'value'),
+#      Input('poi-selection-healthy', 'value'), Input("impedance-slider", "value")],
+#     [State("map-route", "figure")])
+
 @app.callback(
     [Output("output_address", "children"), Output("map-route", "figure")],
-    [Input("dynamic-start", "value"), Input("dynamic-end", 'value'), Input('poi-selection-unhealthy', 'value'),
-     Input('poi-selection-healthy', 'value'), Input("impedance-slider", "value")],
-    [State("map-route", "figure")])
-def update_figure(start, end, selected_poi_unhealthy, select_poi_healthy, impedance_distance, figure):
-    poi_dict = {'restaurant': 'restaurants', 'fast_food': 'fast-foods',
-                'bar': 'bars', 'tree': 'trees', 'bakery': 'bakeries'}
-    selected_poi = selected_poi_unhealthy + select_poi_healthy
-    selected_poi = sorted(selected_poi)
-    bad_pois = ['fast_food', 'restaurant', 'cafe', 'bar', 'bakery']
-    good_pois = ['tree']
-    poi_impedance = 'impedance_' + '_'.join(i for i in selected_poi)
+    [Input('itinerary-start','n_clicks')],
+    [State("dynamic-start", "value"), State("dynamic-end", 'value'), State('poi-selection-unhealthy', 'value'),
+     State('poi-selection-healthy', 'value'), State("impedance-slider", "value"),State("map-route", "figure")],
+    prevent_initial_call = True)
+def update_figure(n_clicks, start, end, selected_poi_unhealthy, select_poi_healthy, impedance_distance, figure):
+    if start is None or end is None:
+        return 'Veuillez indiquer une adresse de départ et de destination.', dash.no_update
+    else:
+        poi_dict = {'restaurant': 'restaurants', 'fast_food': 'fast-foods',
+                    'bar': 'bars', 'tree': 'trees', 'bakery': 'bakeries'}
+        selected_poi = selected_poi_unhealthy + select_poi_healthy
+        selected_poi = sorted(selected_poi)
+        bad_pois = ['fast_food', 'restaurant', 'cafe', 'bar', 'bakery']
+        good_pois = ['tree']
+        poi_impedance = 'impedance_' + '_'.join(i for i in selected_poi)
 
-    # Calculate impedance for the selected options
-    gdf_edges[poi_impedance] = calculate_impedance(gdf_edges, good_pois, bad_pois, selected_poi,
-                                                   impedance_distance)
-    edge_attribute = gdf_edges.set_index(['u', 'v', 'key'])[poi_impedance].to_dict()
-    nx.set_edge_attributes(G, edge_attribute, poi_impedance)
-    if start != '' and end != '':
+        # Calculate impedance for the selected options
+        gdf_edges[poi_impedance] = calculate_impedance(gdf_edges, good_pois, bad_pois, selected_poi,
+                                                       impedance_distance)
+        edge_attribute = gdf_edges.set_index(['u', 'v', 'key'])[poi_impedance].to_dict()
+        nx.set_edge_attributes(G, edge_attribute, poi_impedance)
+
         origin_address, dest_address = regbl_df[regbl_df.address == start], regbl_df[regbl_df.address == end]
         origin_address['type'], dest_address['type'] = 'Starting point', 'Destination'
         origin_address['color'], dest_address['color'] = 'Red', 'Blue'
