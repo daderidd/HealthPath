@@ -1,0 +1,56 @@
+name: healthpath_app #Environment name
+dependencies:
+  - python=3.8
+  - pip==22.0.4
+  - conda-forge::dash
+  - conda-forge::dash-renderer
+  - conda-forge::dash-core-components
+  - conda-forge::dash-html-components
+  - conda-forge::dash-leaflet
+  - conda-forge::plotly
+  - conda-forge::gunicorn # for app deployment
+  - conda-forge::gdal
+  - conda-forge::geopandas
+  - conda-forge::geopy
+  - conda-forge::pandas
+  - conda-forge::pandana
+  - conda-forge::folium
+  - conda-forge::momepy
+  - conda-forge::numpy
+  - conda-forge::pyarrow
+  - conda-forge::networkx
+  - conda-forge::ipykernel
+  - conda-forge::Shapely
+  - conda-forge::osmnx
+  - conda-forge::plotly
+  - conda-forge::scikit-learn
+  - conda-forge::urbanaccess
+  - conda-forge::jupyter-dash
+  # - pip:
+  #   - cython
+  #   - dash
+  #   - dash-renderer
+  #   - dash-core-components
+  #   - dash-html-components
+  #   - dash-leaflet
+  #   - plotly
+  #   - gunicorn # for app deployment
+  #   - gdal
+  #   - geopandas
+  #   - geopy
+  #   - pandas
+  #   - pandana
+  #   - folium
+  #   - momepy
+  #   - numpy
+  #   - pyarrow
+  #   - networkx
+  #   - ipykernel
+  #   - Shapely
+  #   - osmnx
+  #   - plotly
+  #   - scikit-learn
+  #   - urbanaccess
+  #   - jupyter-dash
+
+

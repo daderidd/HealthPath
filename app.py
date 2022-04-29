@@ -5,18 +5,19 @@ import osmnx as ox
 import sys
 from pathlib import Path
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 from shapely.geometry import Point
 from dash.exceptions import PreventUpdate
 
 import dash_bootstrap_components as dbc
 # import plotly.express as px
+import plotly
 from dash.dependencies import Input, Output, State
 import shapely.geometry
 import numpy as np
 import os
-
+from toolbox import connect_poi
 import plotly.graph_objects as go
 from dash.exceptions import PreventUpdate
 
